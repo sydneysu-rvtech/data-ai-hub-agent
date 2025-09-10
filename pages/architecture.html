@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data-AI-Hub Agent - Architecture</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/shared-styles.css">
+</head>
+<body class="text-gray-200">
+
+<!-- Sidebar Toggle Button -->
+<button class="sidebar-toggle" onclick="toggleSidebar()">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+    </svg>
+</button>
+
+<!-- Sidebar Navigation -->
+<nav class="sidebar" id="sidebar">
+    <div class="p-6 border-b border-slate-700">
+        <h2 class="text-xl font-bold text-white">Data-AI-Hub Agent</h2>
+        <p class="text-sm text-slate-400 mt-1">Intelligent Developer Support</p>
+    </div>
+    
+    <div class="py-4">
+        <a href="index.html" class="nav-item">
+            <div class="flex items-center">
+                <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                </svg>
+                Home
+            </div>
+        </a>
+        
+        <a href="architecture.html" class="nav-item">
+            <div class="flex items-center">
+                <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                </svg>
+                Agent Architecture
+            </div>
+        </a>
+        
+        <a href="data-pipeline.html" class="nav-item nav-subitem">
+            <div class="flex items-center">
+                <svg class="w-4 h-4 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                </svg>
+                Data Pipeline Architecture
+            </div>
+        </a>
+        
+        <a href="memory-architecture.html" class="nav-item nav-subitem">
+            <div class="flex items-center">
+                <svg class="w-4 h-4 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                </svg>
+                Memory Architecture
+            </div>
+        </a>
+        
+        <a href="agentic-rag.html" class="nav-item nav-subitem">
+            <div class="flex items-center">
+                <svg class="w-4 h-4 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                </svg>
+                Agentic RAG Workflow
+            </div>
+        </a>
+        
+        <a href="testing-strategy.html" class="nav-item nav-subitem">
+            <div class="flex items-center">
+                <svg class="w-4 h-4 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                Testing Strategy
+            </div>
+        </a>
+        
+        <a href="dev-workflow.html" class="nav-item">
+            <div class="flex items-center">
+                <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+            </svg>
+            Dev Workflow
+            </div>
+        </a>
+    
+    <a href="demo.html" class="nav-item">
+        <div class="flex items-center">
+            <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h8m-5-10V3a1 1 0 011-1h4a1 1 0 011 1v1M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+            </svg>
+            Demo
+        </div>
+    </a>
+    
+    <a href="challenges.html" class="nav-item">
+        <div class="flex items-center">
+            <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+            </svg>
+            Challenges
+        </div>
+    </a>
+    
+    <a href="future-work.html" class="nav-item">
+        <div class="flex items-center">
+            <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+            </svg>
+            Future Work
+        </div>
+    </a>
+</div>
+</nav> 
+
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+        <div class="max-w-6xl mx-auto p-4 sm:p-8">
+            <header class="text-center mb-16">
+                <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white">Agent Architecture</h1>
+                <p class="mt-4 text-lg md:text-xl text-blue-300 max-w-3xl mx-auto">Implementation scope and system workflow overview</p>
+            </header>
+
+            <!-- Implementation Scope -->
+            <section class="mb-16 card">
+                <h2 class="section-title text-3xl font-bold mb-8 text-center w-full">Implementation Scope</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-gradient-to-br from-blue-900/50 to-blue-800/50 border border-blue-700/50 p-8 rounded-lg">
+                        <div class="text-center mb-6">
+                            <div class="bg-blue-500/20 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                                <span class="text-2xl font-bold text-blue-300">v1.0</span>
+                            </div>
+                            <h3 class="text-2xl font-semibold text-blue-400">MVP - Agent Bricks</h3>
+                            <p class="text-blue-200 mt-2">Black Box Approach</p>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-2 h-2 bg-green-400 rounded-full"></div>
+                                <p class="text-gray-300">Databricks Vector Search</p>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="w-2 h-2 bg-green-400 rounded-full"></div>
+                                <p class="text-gray-300">Pre-built LLM Endpoints</p>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="w-2 h-2 bg-green-400 rounded-full"></div>
+                                <p class="text-gray-300">Managed Infrastructure</p>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="w-2 h-2 bg-green-400 rounded-full"></div>
+                                <p class="text-gray-300">Rapid Deployment</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-purple-900/50 to-purple-800/50 border border-purple-700/50 p-8 rounded-lg">
+                        <div class="text-center mb-6">
+                            <div class="bg-purple-500/20 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                                <span class="text-2xl font-bold text-purple-300">v2.0</span>
+                            </div>
+                            <h3 class="text-2xl font-semibold text-purple-400">Custom Infrastructure</h3>
+                            <p class="text-purple-200 mt-2">LangGraph + Databricks Serving</p>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-2 h-2 bg-yellow-400 rounded-full"></div>
+                                <p class="text-gray-300">Custom LangGraph Workflows</p>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="w-2 h-2 bg-yellow-400 rounded-full"></div>
+                                <p class="text-gray-300">Advanced Memory Systems</p>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="w-2 h-2 bg-yellow-400 rounded-full"></div>
+                                <p class="text-gray-300">Full Observability Control</p>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="w-2 h-2 bg-yellow-400 rounded-full"></div>
+                                <p class="text-gray-300">Custom Model Fine-tuning</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- How It Works -->
+            <section class="mb-16 card">
+                <h2 class="section-title text-3xl font-bold mb-8 text-center w-full">How It Works: End-to-End RAG Pipeline for Developer Support</h2>  
+                <div class="flex flex-col items-center gap-6">
+                    <!-- Step 1: Data Sources -->
+                    <div class="w-full">
+                        <h3 class="text-center text-xl font-semibold text-blue-400 mb-4">1. Knowledge Ingestion via Scheduled Databricks Data Pipeline Jobs</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-center">
+                            <div class="bg-slate-700 p-4 rounded-lg"><p class="font-bold">GitLab</p><p class="text-xs text-gray-400 mt-1">Code docs & MR summaries</p></div>
+                            <div class="bg-slate-700 p-4 rounded-lg"><p class="font-bold">Confluence</p><p class="text-xs text-gray-400 mt-1">Wikis & How-To's</p></div>
+                            <div class="bg-slate-700 p-4 rounded-lg"><p class="font-bold">Slack</p><p class="text-xs text-gray-400 mt-1">Validated human solutions</p></div>
+                            <div class="bg-slate-700 p-4 rounded-lg"><p class="font-bold">Databricks</p><p class="text-xs text-gray-400 mt-1">Official docs & KB articles</p></div>
+                        </div>
+                    </div>
+
+                    <svg class="w-10 h-10 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+
+                    <!-- Step 2: User Question -->
+                    <div class="w-full">
+                        <h3 class="text-center text-xl font-semibold text-blue-400 mb-4">2. User Asks a Question</h3>
+                        <div class="bg-slate-700 p-6 rounded-lg text-center max-w-2xl mx-auto">
+                            <div class="icon-bg mb-2"><svg class="w-8 h-8 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg></div>
+                            <p class="font-bold text-lg">Developer Tags @Data-AI-Hub Bot</p>
+                            <p class="text-sm text-gray-400 mt-1">The posted question is sent to the server and triggers the RAG workflow.</p>
+                        </div>
+                    </div>
+
+                    <svg class="w-10 h-10 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+
+                    <!-- Step 3: Vector Search -->
+                    <div class="w-full">
+                        <h3 class="text-center text-xl font-semibold text-blue-400 mb-4">3. Query Knowledge Base Using Vector Search</h3>
+                        <div class="bg-slate-700 p-6 rounded-lg text-center max-w-2xl mx-auto">
+                            <div class="icon-bg mb-2"><svg class="w-8 h-8 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></div>
+                            <p class="font-bold text-lg">Semantic Search & Retrieval</p>
+                            <p class="text-sm text-gray-400 mt-1">Converts question to embeddings and finds most relevant knowledge chunks.</p>
+                        </div>
+                    </div>
+
+                    <svg class="w-10 h-10 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+
+                    <!-- Step 4: RAG Processing -->
+                    <div class="w-full">
+                        <h3 class="text-center text-xl font-semibold text-blue-400 mb-4">4. RAG Processing & AI Generation</h3>
+                        <div class="bg-slate-700 p-6 rounded-lg text-center max-w-2xl mx-auto">
+                            <div class="icon-bg mb-2"><svg class="w-8 h-8 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg></div>
+                            <p class="font-bold text-lg">Prompt + Retrieved Knowledge → AI Engine</p>
+                            <p class="text-sm text-gray-400 mt-1">Combines user question with relevant context to generate accurate, informed responses.</p>
+                        </div>
+                    </div>
+
+                    <svg class="w-10 h-10 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+
+                    <!-- Step 5: Slack Response -->
+                    <div class="w-full">
+                        <h3 class="text-center text-xl font-semibold text-blue-400 mb-4">5. Slack Response Delivery</h3>
+                        <div class="bg-slate-700 p-6 rounded-lg text-center max-w-2xl mx-auto">
+                            <div class="icon-bg mb-2"><svg class="w-8 h-8 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg></div>
+                            <p class="font-bold text-lg">Real-Time 24/7 Integration</p>
+                            <p class="text-sm text-gray-400 mt-1">Delivers instant, contextual answers via FastAPI & WebSocket connection.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- System Workflow Diagram -->
+            <section class="card">
+                <h2 class="section-title text-3xl font-bold mb-8 text-center w-full">Overall System Workflow</h2>
+                <div class="bg-slate-700 p-8 rounded-lg">
+                    <!-- System Workflow Diagram -->
+                    <div class="mb-8">
+                        <svg viewBox="0 0 1200 300" class="w-full h-80 mb-8">
+                            <!-- Background -->
+                            <defs>
+                                <linearGradient id="flowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.1" />
+                                    <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:0.1" />
+                                </linearGradient>
+                                <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                                    <polygon points="0 0, 10 3.5, 0 7" fill="#60a5fa" />
+                                </marker>
+                            </defs>
+                            <rect width="1200" height="300" fill="url(#flowGradient)" rx="10"/>
+                            
+                            <!-- Step 1: User Mentions Bot -->
+                            <g transform="translate(50, 50)">
+                                <circle cx="60" cy="60" r="50" fill="#1e40af" stroke="#3b82f6" stroke-width="3"/>
+                                <text x="60" y="45" text-anchor="middle" fill="#dbeafe" font-size="24">🔔</text>
+                                <text x="60" y="75" text-anchor="middle" fill="#dbeafe" font-size="12" font-weight="bold">User Mentions</text>
+                                <text x="60" y="90" text-anchor="middle" fill="#dbeafe" font-size="12" font-weight="bold">Bot</text>
+                            </g>
+                            
+                            <!-- Arrow 1 -->
+                            <line x1="160" y1="110" x2="210" y2="110" stroke="#60a5fa" stroke-width="3" marker-end="url(#arrowhead)"/>
+                            
+                            <!-- Step 2: Retrieve Thread -->
+                            <g transform="translate(220, 50)">
+                                <circle cx="60" cy="60" r="50" fill="#166534" stroke="#16a34a" stroke-width="3"/>
+                                <text x="60" y="45" text-anchor="middle" fill="#dcfce7" font-size="24">📜</text>
+                                <text x="60" y="75" text-anchor="middle" fill="#dcfce7" font-size="12" font-weight="bold">Retrieve Thread</text>
+                                <text x="60" y="90" text-anchor="middle" fill="#dcfce7" font-size="12" font-weight="bold">History</text>
+                            </g>
+                            
+                            <!-- Arrow 2 -->
+                            <line x1="330" y1="110" x2="380" y2="110" stroke="#60a5fa" stroke-width="3" marker-end="url(#arrowhead)"/>
+                            
+                            <!-- Step 3: Generate Query -->
+                            <g transform="translate(390, 50)">
+                                <circle cx="60" cy="60" r="50" fill="#581c87" stroke="#8b5cf6" stroke-width="3"/>
+                                <text x="60" y="45" text-anchor="middle" fill="#f3e8ff" font-size="24">🎯</text>
+                                <text x="60" y="75" text-anchor="middle" fill="#f3e8ff" font-size="12" font-weight="bold">Generate</text>
+                                <text x="60" y="90" text-anchor="middle" fill="#f3e8ff" font-size="12" font-weight="bold">Search Query</text>
+                            </g>
+                            
+                            <!-- Arrow 3 -->
+                            <line x1="500" y1="110" x2="550" y2="110" stroke="#60a5fa" stroke-width="3" marker-end="url(#arrowhead)"/>
+                            
+                            <!-- Step 4: Vector Search -->
+                            <g transform="translate(560, 50)">
+                                <circle cx="60" cy="60" r="50" fill="#9a3412" stroke="#f97316" stroke-width="3"/>
+                                <text x="60" y="45" text-anchor="middle" fill="#fed7aa" font-size="24">🔍</text>
+                                <text x="60" y="75" text-anchor="middle" fill="#fed7aa" font-size="12" font-weight="bold">Vector</text>
+                                <text x="60" y="90" text-anchor="middle" fill="#fed7aa" font-size="12" font-weight="bold">Search</text>
+                            </g>
+                            
+                            <!-- Arrow 4 -->
+                            <line x1="670" y1="110" x2="720" y2="110" stroke="#60a5fa" stroke-width="3" marker-end="url(#arrowhead)"/>
+                            
+                            <!-- Step 5: Format Response -->
+                            <g transform="translate(730, 50)">
+                                <circle cx="60" cy="60" r="50" fill="#155e75" stroke="#06b6d4" stroke-width="3"/>
+                                <text x="60" y="45" text-anchor="middle" fill="#cffafe" font-size="24">💬</text>
+                                <text x="60" y="75" text-anchor="middle" fill="#cffafe" font-size="12" font-weight="bold">Format</text>
+                                <text x="60" y="90" text-anchor="middle" fill="#cffafe" font-size="12" font-weight="bold">Response</text>
+                            </g>
+                            
+                            <!-- MLflow Observability Banner -->
+                            <g transform="translate(300, 200)">
+                                <rect x="0" y="0" width="400" height="40" fill="#1e293b" stroke="#3b82f6" stroke-width="2" rx="20"/>
+                                <text x="200" y="15" text-anchor="middle" fill="#60a5fa" font-size="14" font-weight="bold">MLflow Observability</text>
+                                <text x="200" y="30" text-anchor="middle" fill="#94a3b8" font-size="12">End-to-End Monitoring</text>
+                            </g>
+                            
+                            <!-- Monitoring Lines -->
+                            <line x1="110" y1="160" x2="110" y2="200" stroke="#3b82f6" stroke-width="2" stroke-dasharray="5,5" opacity="0.7"/>
+                            <line x1="280" y1="160" x2="280" y2="200" stroke="#3b82f6" stroke-width="2" stroke-dasharray="5,5" opacity="0.7"/>
+                            <line x1="450" y1="160" x2="450" y2="200" stroke="#3b82f6" stroke-width="2" stroke-dasharray="5,5" opacity="0.7"/>
+                            <line x1="620" y1="160" x2="620" y2="200" stroke="#3b82f6" stroke-width="2" stroke-dasharray="5,5" opacity="0.7"/>
+                            <line x1="790" y1="160" x2="790" y2="200" stroke="#3b82f6" stroke-width="2" stroke-dasharray="5,5" opacity="0.7"/>
+                        </svg>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 text-center">
+                        <div class="bg-slate-600 p-4 rounded-lg">
+                            <div class="text-2xl mb-2">🔔</div>
+                            <p class="font-semibold text-blue-300">User Mentions Bot</p>
+                            <p class="text-xs text-gray-400 mt-1">Slack thread trigger</p>
+                        </div>
+                        <div class="bg-slate-600 p-4 rounded-lg">
+                            <div class="text-2xl mb-2">📜</div>
+                            <p class="font-semibold text-green-300">Retrieve Thread History</p>
+                            <p class="text-xs text-gray-400 mt-1">Full conversation context</p>
+                        </div>
+                        <div class="bg-slate-600 p-4 rounded-lg">
+                            <div class="text-2xl mb-2">🎯</div>
+                            <p class="font-semibold text-purple-300">Generate Search Query</p>
+                            <p class="text-xs text-gray-400 mt-1">LLM-enhanced query</p>
+                        </div>
+                        <div class="bg-slate-600 p-4 rounded-lg">
+                            <div class="text-2xl mb-2">🔍</div>
+                            <p class="font-semibold text-orange-300">Vector Search</p>
+                            <p class="text-xs text-gray-400 mt-1">Retrieve relevant docs</p>
+                        </div>
+                        <div class="bg-slate-600 p-4 rounded-lg">
+                            <div class="text-2xl mb-2">💬</div>
+                            <p class="font-semibold text-cyan-300">Format Response</p>
+                            <p class="text-xs text-gray-400 mt-1">Send to Slack</p>
+                        </div>
+                    </div>
+                    <div class="mt-6 text-center">
+                        <p class="text-gray-300">All major steps monitored by <span class="text-blue-400 font-semibold">MLflow</span> for complete observability</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="../styles/shared-navigation.js"></script>
+
+</body>
+</html> 

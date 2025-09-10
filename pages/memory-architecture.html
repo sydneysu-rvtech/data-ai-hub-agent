@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data-AI-Hub Agent - Memory Architecture</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/shared-styles.css">
+</head>
+<body class="text-gray-200">
+
+<!-- Sidebar Toggle Button -->
+<button class="sidebar-toggle" onclick="toggleSidebar()">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+    </svg>
+</button>
+
+<!-- Sidebar Navigation -->
+<nav class="sidebar" id="sidebar">
+    <div class="p-6 border-b border-slate-700">
+        <h2 class="text-xl font-bold text-white">Data-AI-Hub Agent</h2>
+        <p class="text-sm text-slate-400 mt-1">Intelligent Developer Support</p>
+    </div>
+    
+    <div class="py-4">
+        <a href="index.html" class="nav-item">
+            <div class="flex items-center">
+                <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                </svg>
+                Home
+            </div>
+        </a>
+        
+        <a href="architecture.html" class="nav-item">
+            <div class="flex items-center">
+                <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                </svg>
+                Agent Architecture
+            </div>
+        </a>
+        
+        <a href="data-pipeline.html" class="nav-item nav-subitem">
+            <div class="flex items-center">
+                <svg class="w-4 h-4 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                </svg>
+                Data Pipeline Architecture
+            </div>
+        </a>
+        
+        <a href="memory-architecture.html" class="nav-item nav-subitem">
+            <div class="flex items-center">
+                <svg class="w-4 h-4 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                </svg>
+                Memory Architecture
+            </div>
+        </a>
+        
+        <a href="agentic-rag.html" class="nav-item nav-subitem">
+            <div class="flex items-center">
+                <svg class="w-4 h-4 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                </svg>
+                Agentic RAG Workflow
+            </div>
+        </a>
+        
+        <a href="testing-strategy.html" class="nav-item nav-subitem">
+            <div class="flex items-center">
+                <svg class="w-4 h-4 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                Testing Strategy
+            </div>
+        </a>
+        
+        <a href="dev-workflow.html" class="nav-item">
+            <div class="flex items-center">
+                <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+            </svg>
+            Dev Workflow
+            </div>
+        </a>
+    
+    <a href="demo.html" class="nav-item">
+        <div class="flex items-center">
+            <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h8m-5-10V3a1 1 0 011-1h4a1 1 0 011 1v1M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+            </svg>
+            Demo
+        </div>
+    </a>
+    
+    <a href="challenges.html" class="nav-item">
+        <div class="flex items-center">
+            <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+            </svg>
+            Challenges
+        </div>
+    </a>
+    
+    <a href="future-work.html" class="nav-item">
+        <div class="flex items-center">
+            <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+            </svg>
+            Future Work
+        </div>
+    </a>
+</div>
+</nav> 
+
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+        <div class="max-w-6xl mx-auto p-4 sm:p-8">
+            <header class="text-center mb-16">
+                <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white">Memory Architecture</h1>
+                <p class="mt-4 text-lg md:text-xl text-blue-300 max-w-3xl mx-auto">Three memory systems powering intelligent responses</p>
+            </header>
+
+            <!-- Memory Patterns and Use Cases -->
+            <section class="mb-16 card">
+                <h2 class="section-title text-3xl font-bold mb-8 text-center w-full">Memory Patterns and Use Cases</h2>
+                <div class="bg-slate-700 p-8 rounded-lg">
+                    <!-- Memory Types Diagram -->
+                    <div class="mb-8">
+                        <svg viewBox="0 0 800 400" class="w-full h-96 mb-8">
+                            <defs>
+                                <linearGradient id="memoryGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#1e293b;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#0f172a;stop-opacity:1" />
+                                </linearGradient>
+                                <marker id="memoryArrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+                                    <polygon points="0 0, 8 3, 0 6" fill="#60a5fa" />
+                                </marker>
+                            </defs>
+                            <rect width="800" height="400" fill="url(#memoryGradient)" rx="10"/>
+                            
+                            <!-- Semantic Memory -->
+                            <g transform="translate(50, 50)">
+                                <rect x="0" y="0" width="140" height="100" fill="#1e40af" stroke="#3b82f6" stroke-width="2" rx="10"/>
+                                <text x="70" y="25" text-anchor="middle" fill="#dbeafe" font-size="14" font-weight="bold">Semantic Memory</text>
+                                <text x="70" y="45" text-anchor="middle" fill="#bfdbfe" font-size="11">Vector Search Index</text>
+                                <text x="70" y="60" text-anchor="middle" fill="#bfdbfe" font-size="10">• GitLab Docs</text>
+                                <text x="70" y="75" text-anchor="middle" fill="#bfdbfe" font-size="10">• Confluence</text>
+                                <text x="70" y="90" text-anchor="middle" fill="#bfdbfe" font-size="10">• KB Articles</text>
+                            </g>
+                            
+                            <!-- Short Term Memory -->
+                            <g transform="translate(50, 200)">
+                                <rect x="0" y="0" width="140" height="100" fill="#166534" stroke="#16a34a" stroke-width="2" rx="10"/>
+                                <text x="70" y="25" text-anchor="middle" fill="#dcfce7" font-size="14" font-weight="bold">Short Term</text>
+                                <text x="70" y="40" text-anchor="middle" fill="#dcfce7" font-size="14" font-weight="bold">Memory</text>
+                                <text x="70" y="60" text-anchor="middle" fill="#bbf7d0" font-size="11">Thread Context</text>
+                                <text x="70" y="75" text-anchor="middle" fill="#bbf7d0" font-size="10">• Conversation History</text>
+                                <text x="70" y="90" text-anchor="middle" fill="#bbf7d0" font-size="10">• User Context</text>
+                            </g>
+                            
+                            <!-- Episodic Memory -->
+                            <g transform="translate(250, 125)">
+                                <rect x="0" y="0" width="140" height="100" fill="#581c87" stroke="#8b5cf6" stroke-width="2" rx="10" opacity="0.6"/>
+                                <text x="70" y="25" text-anchor="middle" fill="#f3e8ff" font-size="14" font-weight="bold">Episodic Memory</text>
+                                <text x="70" y="45" text-anchor="middle" fill="#e9d5ff" font-size="11">User Patterns</text>
+                                <text x="70" y="60" text-anchor="middle" fill="#e9d5ff" font-size="10">• Interaction History</text>
+                                <text x="70" y="75" text-anchor="middle" fill="#e9d5ff" font-size="10">• Resolution Tracking</text>
+                                <text x="70" y="90" text-anchor="middle" fill="#e9d5ff" font-size="10" opacity="0.7">(Not Implemented)</text>
+                            </g>
+                            
+                            <!-- RAG Response Generation -->
+                            <g transform="translate(550, 150)">
+                                <rect x="0" y="0" width="180" height="80" fill="#dc2626" stroke="#ef4444" stroke-width="3" rx="15"/>
+                                <text x="90" y="30" text-anchor="middle" fill="#fecaca" font-size="16" font-weight="bold">RAG Response</text>
+                                <text x="90" y="50" text-anchor="middle" fill="#fecaca" font-size="16" font-weight="bold">Generation</text>
+                                <text x="90" y="70" text-anchor="middle" fill="#fca5a5" font-size="12">Context + Retrieved Docs</text>
+                            </g>
+                            
+                            <!-- Arrows -->
+                            <!-- From Semantic Memory -->
+                            <path d="M 190 100 Q 350 100 520 170" fill="none" stroke="#60a5fa" stroke-width="3" marker-end="url(#memoryArrow)"/>
+                            
+                            <!-- From Short Term Memory -->
+                            <path d="M 190 250 Q 350 250 520 210" fill="none" stroke="#60a5fa" stroke-width="3" marker-end="url(#memoryArrow)"/>
+                            
+                            <!-- From Episodic Memory -->
+                            <path d="M 390 175 Q 450 175 520 185" fill="none" stroke="#60a5fa" stroke-width="3" marker-end="url(#memoryArrow)" opacity="0.6" stroke-dasharray="8,4"/>
+                            
+                            <!-- Labels for arrows -->
+                            <text x="300" y="85" text-anchor="middle" fill="#94a3b8" font-size="11">Documentation</text>
+                            <text x="300" y="265" text-anchor="middle" fill="#94a3b8" font-size="11">Conversation</text>
+                            <text x="450" y="165" text-anchor="middle" fill="#94a3b8" font-size="11" opacity="0.7">Future Enhancement</text>
+                        </svg>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="bg-gradient-to-br from-blue-900/50 to-blue-800/50 border border-blue-700/50 p-6 rounded-lg text-center">
+                            <div class="bg-blue-500/20 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                                <svg class="w-8 h-8 text-blue-300 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-semibold text-blue-400 mb-3">Semantic Memory</h3>
+                            <p class="text-gray-300 text-sm">Vector search index containing documentation and code from all knowledge sources</p>
+                            <div class="mt-4 space-y-2">
+                                <div class="bg-slate-600 px-3 py-1 rounded text-xs">GitLab Docs</div>
+                                <div class="bg-slate-600 px-3 py-1 rounded text-xs">Confluence Pages</div>
+                                <div class="bg-slate-600 px-3 py-1 rounded text-xs">KB Articles</div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gradient-to-br from-green-900/50 to-green-800/50 border border-green-700/50 p-6 rounded-lg text-center">
+                            <div class="bg-green-500/20 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                                <svg class="w-8 h-8 text-green-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-semibold text-green-400 mb-3">Short Term Memory</h3>
+                            <p class="text-gray-300 text-sm">Context from the current conversation thread for coherent multi-turn dialogue</p>
+                            <div class="mt-4 space-y-2">
+                                <div class="bg-slate-600 px-3 py-1 rounded text-xs">Thread History</div>
+                                <div class="bg-slate-600 px-3 py-1 rounded text-xs">User Context</div>
+                                <div class="bg-slate-600 px-3 py-1 rounded text-xs">Previous Q&A</div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gradient-to-br from-purple-900/50 to-purple-800/50 border border-purple-700/50 p-6 rounded-lg text-center">
+                            <div class="bg-purple-500/20 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                                <svg class="w-8 h-8 text-purple-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-semibold text-purple-400 mb-3">Episodic Memory</h3>
+                            <p class="text-gray-300 text-sm">Tracks user interaction patterns and issue resolution history</p>
+                            <div class="mt-4 space-y-2">
+                                <div class="bg-slate-600 px-3 py-1 rounded text-xs opacity-60">Not Yet Implemented</div>
+                                <div class="bg-slate-600 px-3 py-1 rounded text-xs opacity-60">User Patterns</div>
+                                <div class="bg-slate-600 px-3 py-1 rounded text-xs opacity-60">Resolution Tracking</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Business Value -->
+            <section class="mb-16 card">
+                <h2 class="section-title text-3xl font-bold mb-8 text-center w-full">Business Value & Impact</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-slate-700 p-8 rounded-lg">
+                        <div class="icon-bg mb-4 mx-auto w-fit">
+                            <svg class="w-8 h-8 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-blue-400 mb-4 text-center">Improved Knowledge Accessibility</h3>
+                        <p class="text-gray-300 text-center">Dramatically improves knowledge accessibility and discoverability across the entire platform ecosystem.</p>
+                    </div>
+                    
+                    <div class="bg-slate-700 p-8 rounded-lg">
+                        <div class="icon-bg mb-4 mx-auto w-fit">
+                            <svg class="w-8 h-8 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-blue-400 mb-4 text-center">Accelerated Onboarding</h3>
+                        <p class="text-gray-300 text-center">Accelerates onboarding and problem resolution for <span class="text-blue-300 font-semibold">10K+ Databricks users</span> with a lean team of <span class="text-blue-300 font-semibold">5 platform engineers + &lt;25 data domain stewards</span>.</p>
+                    </div>
+                </div>
+            </section>
+    
+        </div>
+    </main>
+
+    <script src="../styles/shared-navigation.js"></script>
+
+</body>
+</html>
