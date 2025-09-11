@@ -74,7 +74,7 @@
 <script src="../styles/shared-navigation.js"></script>
 
 <!-- Sidebar Toggle Button -->
-<button class="sidebar-toggle" onclick="toggleSidebar()">
+<button class="sidebar-toggle" onclick="toggleSidebar()" style="top: 1rem; right: 1rem; left: auto;">
     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
     </svg>
@@ -479,68 +479,6 @@
     
         </div>
     </main>
-
-<script>
-    // Initialize Mermaid
-    mermaid.initialize({ 
-        startOnLoad: true,
-        theme: 'default',
-        themeVariables: {
-            primaryColor: '#3b82f6',
-            primaryTextColor: '#1f2937',
-            primaryBorderColor: '#1e40af',
-            lineColor: '#6b7280',
-            secondaryColor: '#e5e7eb',
-            tertiaryColor: '#f3f4f6'
-        }
-    });
-    
-    // Sidebar toggle functionality
-    function toggleSidebar() {
-        const sidebar = document.getElementById('sidebar');
-        const mainContent = document.getElementById('mainContent');
-        
-        sidebar.classList.toggle('sidebar-open');
-        mainContent.classList.toggle('main-content-shifted');
-    }
-
-    // Close sidebar when clicking outside on mobile
-    document.addEventListener('click', function(event) {
-        const sidebar = document.getElementById('sidebar');
-        const sidebarToggle = document.querySelector('.sidebar-toggle');
-        
-        if (window.innerWidth <= 768 && 
-            !sidebar.contains(event.target) && 
-            !sidebarToggle.contains(event.target) && 
-            sidebar.classList.contains('sidebar-open')) {
-            toggleSidebar();
-        }
-    });
-
-    // Handle window resize
-    window.addEventListener('resize', function() {
-        const sidebar = document.getElementById('sidebar');
-        const mainContent = document.getElementById('mainContent');
-        
-        if (window.innerWidth > 768) {
-            sidebar.classList.remove('sidebar-open');
-            mainContent.classList.remove('main-content-shifted');
-        }
-    });
-
-    // Set active navigation item
-    document.addEventListener('DOMContentLoaded', function() {
-        const currentPage = window.location.pathname.split('/').pop();
-        const navItems = document.querySelectorAll('.nav-item');
-        
-        navItems.forEach(item => {
-            const href = item.getAttribute('href');
-            if (href === currentPage) {
-                item.classList.add('nav-item-active');
-            }
-        });
-    });
-</script>
 
 </body>
 </html>

@@ -16,7 +16,7 @@
 <script src="../styles/shared-navigation.js"></script>
 
 <!-- Sidebar Toggle Button -->
-<button class="sidebar-toggle" onclick="toggleSidebar()">
+<button class="sidebar-toggle" onclick="toggleSidebar()" style="top: 1rem; right: 1rem; left: auto;">
     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
     </svg>
@@ -138,7 +138,7 @@
             <!-- Header -->
             <header class="text-center mb-16">
                 <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mb-6">Project Rationale</h1>
-                <p class="mt-4 text-lg md:text-xl text-blue-300 max-w-3xl mx-auto">Understanding the business case and technical foundation behind the Data-AI-Hub Agent.</p>
+                <p class="mt-4 text-lg md:text-xl text-blue-300 max-w-3xl mx-auto">Understanding the business and developer value behind the Data-AI-Hub Agent.</p>
             </header>
 
             <!-- Platform Coverage & Engagement -->
@@ -146,9 +146,9 @@
                 <h2 class="section-title text-3xl font-bold mb-8 text-center w-full">Support Coverage & Engagement</h2>
                 
                 <!-- Bar Chart - Full Width -->
-                <div class="bg-slate-700 p-6 rounded-lg mb-8">
+                <div class="bg-gradient-to-br from-slate-800 to-slate-900 p-6 rounded-lg mb-8 border border-slate-600">
                     <h3 class="text-2xl font-semibold text-blue-400 mb-6 text-center">Slack Support Volume (6 months)</h3>
-                    <div class="bg-slate-700 p-6 rounded-lg border border-slate-500" style="height: 500px;">
+                    <div class="bg-gradient-to-b from-slate-900 to-slate-800 p-6 rounded-lg border border-slate-600 shadow-lg" style="height: 500px;">
                         <canvas id="channelVolumeChart"></canvas>
                     </div>
                 </div>
@@ -187,7 +187,7 @@
                         <div class="flip-card-inner">
                             <div class="flip-card-front bg-red-900/50">
                                 <p class="text-5xl font-extrabold text-white">$130,000</p>
-                                <p class="text-lg text-red-300 mt-1">Projected annual cost in senior engineer time<br>for the Data-AI-Hub team</p>
+                                <p class="text-lg text-red-300 mt-1">Projected annual cost in senior engineer time<br>purely for the Data-AI-Hub team</p>
                             </div>
                             <div class="flip-card-back bg-red-800/70">
                                 <div class="text-center text-white">
@@ -312,20 +312,33 @@
                     label: 'Messages (6 months)',
                     data: [4250, 2890, 2340, 1980, 1750, 1650, 1520, 1350, 683], // Sample data totaling ~18,413
                     backgroundColor: [
-                        '#1e40af', // dark blue
-                        '#0f766e', // dark teal
-                        '#b45309', // dark amber
-                        '#991b1b', // dark red
-                        '#6b21a8', // dark purple
-                        '#0c4a6e', // dark sky
-                        '#365314', // dark lime
-                        '#c2410c', // dark orange
-                        '#be185d'  // dark pink
+                        '#3b82f6', // bright blue
+                        '#10b981', // emerald
+                        '#f59e0b', // amber
+                        '#ef4444', // red
+                        '#8b5cf6', // violet
+                        '#06b6d4', // cyan
+                        '#84cc16', // lime
+                        '#f97316', // orange
+                        '#ec4899'  // pink
                     ],
-                    borderColor: '#374151',
-                    borderWidth: 1,
-                    borderRadius: 4,
+                    borderColor: '#1f2937',
+                    borderWidth: 2,
+                    borderRadius: 6,
                     borderSkipped: false,
+                    hoverBackgroundColor: [
+                        '#60a5fa', // brighter blue on hover
+                        '#34d399', // brighter emerald on hover
+                        '#fbbf24', // brighter amber on hover
+                        '#f87171', // brighter red on hover
+                        '#a78bfa', // brighter violet on hover
+                        '#22d3ee', // brighter cyan on hover
+                        '#a3e635', // brighter lime on hover
+                        '#fb923c', // brighter orange on hover
+                        '#f472b6'  // brighter pink on hover
+                    ],
+                    hoverBorderColor: '#111827',
+                    hoverBorderWidth: 3,
                 }]
             };
 
@@ -335,34 +348,62 @@
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
+                    animation: {
+                        duration: 1500,
+                        easing: 'easeOutQuart'
+                    },
+                    interaction: {
+                        intersect: false,
+                        mode: 'index'
+                    },
                     plugins: {
                         title: {
                             display: false
                         },
                         legend: {
                             display: false
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(17, 24, 39, 0.95)',
+                            titleColor: '#f3f4f6',
+                            bodyColor: '#d1d5db',
+                            borderColor: '#374151',
+                            borderWidth: 1,
+                            cornerRadius: 8,
+                            displayColors: true,
+                            titleFont: {
+                                size: 14,
+                                weight: '600',
+                                family: 'Inter, sans-serif'
+                            },
+                            bodyFont: {
+                                size: 13,
+                                family: 'Inter, sans-serif'
+                            }
                         }
                     },
                     scales: {
                         y: {
                             beginAtZero: true,
                             grid: {
-                                color: '#4b5563',
-                                drawBorder: false
+                                color: '#374151',
+                                drawBorder: false,
+                                lineWidth: 1
                             },
                             ticks: {
-                                color: '#d1d5db',
+                                color: '#f3f4f6',
                                 font: {
                                     size: 12,
-                                    family: 'Inter, sans-serif'
+                                    family: 'Inter, sans-serif',
+                                    weight: '500'
                                 }
                             },
                             title: {
                                 display: true,
                                 text: 'Number of Messages',
-                                color: '#e5e7eb',
+                                color: '#f3f4f6',
                                 font: {
-                                    size: 13,
+                                    size: 14,
                                     weight: '600',
                                     family: 'Inter, sans-serif'
                                 }
@@ -373,10 +414,11 @@
                                 display: false
                             },
                             ticks: {
-                                color: '#d1d5db',
+                                color: '#f3f4f6',
                                 font: {
                                     size: 11,
-                                    family: 'Inter, sans-serif'
+                                    family: 'Inter, sans-serif',
+                                    weight: '500'
                                 },
                                 maxRotation: 45,
                                 minRotation: 45
@@ -384,9 +426,9 @@
                             title: {
                                 display: true,
                                 text: 'Support Channels',
-                                color: '#e5e7eb',
+                                color: '#f3f4f6',
                                 font: {
-                                    size: 13,
+                                    size: 14,
                                     weight: '600',
                                     family: 'Inter, sans-serif'
                                 }

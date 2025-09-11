@@ -15,7 +15,7 @@
 <script src="../styles/shared-navigation.js"></script>
 
 <!-- Sidebar Toggle Button -->
-<button class="sidebar-toggle" onclick="toggleSidebar()">
+<button class="sidebar-toggle" onclick="toggleSidebar()" style="top: 1rem; right: 1rem; left: auto;">
     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
     </svg>
@@ -139,12 +139,62 @@
                 <p class="mt-4 text-lg md:text-xl text-blue-300 max-w-3xl mx-auto">Technical challenges and solutions encountered</p>
             </header>
 
-            
-            <div class="card text-center">
-                <div class="py-20">
-                    <div class="text-6xl mb-6">⚡</div>
-                    <h2 class="text-2xl font-bold text-gray-300 mb-4">Challenges Content Coming Soon</h2>
-                    <p class="text-gray-400">This section will contain detailed information about challenges.</p>
+            <!-- Scattered Challenge Boxes -->
+            <div class="relative min-h-screen">
+                <!-- Row 1 -->
+                <div class="flex justify-start mb-4">
+                    <div class="card bg-gradient-to-br from-red-900/50 to-red-800/50 border border-red-700/50 p-6 w-80">
+                        <h3 class="text-xl font-semibold text-red-400 text-center">Agent Bricks Beta Issues</h3>
+                    </div>
+                </div>
+
+                <!-- Row 2 -->
+                <div class="flex justify-end mb-4">
+                    <div class="card bg-gradient-to-br from-blue-900/50 to-blue-800/50 border border-blue-700/50 p-6 w-72">
+                        <h3 class="text-xl font-semibold text-blue-400 text-center">Learning Databricks Platform</h3>
+                    </div>
+                </div>
+
+                <!-- Row 3 -->
+                <div class="flex justify-center mb-4">
+                    <div class="card bg-gradient-to-br from-yellow-900/50 to-yellow-800/50 border border-yellow-700/50 p-6 w-64">
+                        <h3 class="text-xl font-semibold text-yellow-400 text-center">Cluster Startup Time</h3>
+                    </div>
+                </div>
+
+                <!-- Row 4 -->
+                <div class="flex justify-start ml-32 mb-4">
+                    <div class="card bg-gradient-to-br from-purple-900/50 to-purple-800/50 border border-purple-700/50 p-6 w-76">
+                        <h3 class="text-xl font-semibold text-purple-400 text-center">Learning Data-Atlas-Terraform<br>Repo Best Practices</h3>
+                    </div>
+                </div>
+
+                <!-- Row 5 -->
+                <div class="flex justify-end mr-24 mb-4">
+                    <div class="card bg-gradient-to-br from-slate-700/50 to-slate-800/50 border border-slate-600/50 p-6 w-64">
+                        <h3 class="text-xl font-semibold text-slate-300 text-center">MR Review Process</h3>
+                    </div>
+                </div>
+
+                <!-- Row 6 -->
+                <div class="flex justify-start ml-16 mb-4">
+                    <div class="card bg-gradient-to-br from-green-900/50 to-green-800/50 border border-green-700/50 p-6 w-68">
+                        <h3 class="text-xl font-semibold text-green-400 text-center">Learning LangGraph</h3>
+                    </div>
+                </div>
+
+                <!-- Row 7 -->
+                <div class="flex justify-center mr-32 mb-4">
+                    <div class="card bg-gradient-to-br from-orange-900/50 to-orange-800/50 border border-orange-700/50 p-6 w-80">
+                        <h3 class="text-xl font-semibold text-orange-400 text-center">Notebook to DABs Migration</h3>
+                    </div>
+                </div>
+
+                <!-- Row 8 -->
+                <div class="flex justify-end mb-4">
+                    <div class="card bg-gradient-to-br from-indigo-900/50 to-indigo-800/50 border border-indigo-700/50 p-6 w-64">
+                        <h3 class="text-xl font-semibold text-indigo-400 text-center">Large Project Solo Development</h3>
+                    </div>
                 </div>
             </div>
     
