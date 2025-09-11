@@ -3,12 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data-AI-Hub Agent - Dev Workflow</title>
+    <title>Data-AI-Hub Agent - Directory Structure</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../styles/shared-styles.css">
+    <style>
+        .directory-tree {
+            font-family: 'Fira Code', 'Monaco', 'Cascadia Code', 'Roboto Mono', monospace;
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 8px;
+            padding: 1.5rem;
+            overflow-x: auto;
+        }
+        .tree-item {
+            display: flex;
+            align-items: center;
+            padding: 0.25rem 0;
+            transition: background-color 0.2s;
+        }
+        .tree-item:hover {
+            background-color: rgba(59, 130, 246, 0.1);
+            border-radius: 4px;
+        }
+        .tree-icon {
+            margin-right: 0.5rem;
+            flex-shrink: 0;
+        }
+        .folder-icon {
+            color: #fbbf24;
+        }
+        .file-icon {
+            color: #94a3b8;
+        }
+        .python-file {
+            color: #3b82f6;
+        }
+        .yaml-file {
+            color: #10b981;
+        }
+        .config-file {
+            color: #f59e0b;
+        }
+        .indent-1 { margin-left: 1rem; }
+        .indent-2 { margin-left: 2rem; }
+        .indent-3 { margin-left: 3rem; }
+        .indent-4 { margin-left: 4rem; }
+        .section-divider {
+            border-top: 2px solid #475569;
+            margin: 2rem 0;
+            padding-top: 2rem;
+        }
+    </style>
 </head>
 <body class="text-gray-200">
 
@@ -98,7 +146,7 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
             </svg>
-            Dev Workflow
+            Directory Structure
             </div>
         </a>
     
@@ -135,91 +183,511 @@
     <main class="main-content" id="mainContent">
         <div class="max-w-6xl mx-auto p-4 sm:p-8">
             <header class="text-center mb-16">
-                <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white">Development Workflow</h1>
-                <p class="mt-4 text-lg md:text-xl text-blue-300 max-w-3xl mx-auto">Feature development process and getting started guide</p>
+                <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white">Directory Structure</h1>
+                <p class="mt-4 text-lg md:text-xl text-blue-300 max-w-3xl mx-auto">Project organization and file layout for the Data-AI-Hub Agent</p>
             </header>
 
-            <!-- DAB Best Practices -->
-            <section class="mb-16 card">
-                <h2 class="section-title text-3xl font-bold mb-8 text-center w-full">Development Best Practices</h2>
-                <div class="bg-slate-700 p-8 rounded-lg">
-                    <div class="text-center mb-8">
-                        <h3 class="text-2xl font-semibold text-blue-400 mb-4">Databricks Asset Bundles (DAB) Architecture</h3>
-                        <p class="text-gray-300 max-w-4xl mx-auto">The Data-AI-Hub Agent follows documented best practices. This includes code organization and deployment, ensuring maintainable, scalable, and production-ready infrastructure.</p>
-                    </div>
-                    
-                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-                        <div class="bg-gradient-to-br from-blue-900/50 to-blue-800/50 border border-blue-700/50 p-6 rounded-lg text-center">
-                            <div class="bg-blue-500/20 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                                <svg class="w-8 h-8 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
-                                </svg>
-                            </div>
-                            <h4 class="text-lg font-semibold text-blue-400 mb-2">Pipeline Separation</h4>
-                            <p class="text-gray-300 text-sm">Bronze, Silver, Gold data processing stages with clear boundaries</p>
+            <!-- Apps Directory Structure -->
+            <section class="mb-16">
+                <div class="card">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-blue-600 rounded-full p-3 mr-4">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2 2v0"></path>
+                            </svg>
                         </div>
-                        
-                        <div class="bg-gradient-to-br from-green-900/50 to-green-800/50 border border-green-700/50 p-6 rounded-lg text-center">
-                            <div class="bg-green-500/20 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                                <svg class="w-8 h-8 text-green-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                </svg>
-                            </div>
-                            <h4 class="text-lg font-semibold text-green-400 mb-2">Infrastructure as Code</h4>
-                            <p class="text-gray-300 text-sm">Environment-specific configurations and resource management</p>
-                        </div>
-                        
-                        <div class="bg-gradient-to-br from-purple-900/50 to-purple-800/50 border border-purple-700/50 p-6 rounded-lg text-center">
-                            <div class="bg-purple-500/20 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                                <svg class="w-8 h-8 text-purple-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                </svg>
-                            </div>
-                            <h4 class="text-lg font-semibold text-purple-400 mb-2">Comprehensive Testing</h4>
-                            <p class="text-gray-300 text-sm">Unit tests, integration tests, and end-to-end validation</p>
-                        </div>
-                        
-                        <div class="bg-gradient-to-br from-orange-900/50 to-orange-800/50 border border-orange-700/50 p-6 rounded-lg text-center">
-                            <div class="bg-orange-500/20 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                                <svg class="w-8 h-8 text-orange-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                                </svg>
-                            </div>
-                            <h4 class="text-lg font-semibold text-orange-400 mb-2">Modular Architecture</h4>
-                            <p class="text-gray-300 text-sm">Reusable components and clear separation of concerns</p>
+                        <div>
+                            <h2 class="text-2xl font-bold text-white">apps/data-ai-hub-agent</h2>
+                            <p class="text-gray-400 mt-1">Application deployment and runtime configuration</p>
                         </div>
                     </div>
                     
-                    <div class="bg-slate-600 p-6 rounded-lg">
-                        <h4 class="text-lg font-semibold text-blue-400 mb-4 text-center">Key Implementation Principles</h4>
-                        <div class="grid md:grid-cols-2 gap-6">
-                            <div class="space-y-3">
-                                <div class="flex items-center">
-                                    <div class="w-2 h-2 bg-blue-400 rounded-full mr-3"></div>
-                                    <span class="text-gray-300">Environment-specific deployment targets</span>
+                    <div class="directory-tree">
+                        <div class="tree-item">
+                            <span class="tree-icon folder-icon">📁</span>
+                            <span class="text-yellow-300 font-semibold">apps/</span>
+                        </div>
+                        <div class="tree-item indent-1">
+                            <span class="tree-icon folder-icon">📁</span>
+                            <span class="text-yellow-300 font-semibold">data-ai-hub-agent/</span>
+                        </div>
+                        <div class="tree-item indent-2">
+                            <span class="tree-icon folder-icon">📁</span>
+                            <span class="text-yellow-300">databricks/</span>
+                        </div>
+                        <div class="tree-item indent-2">
+                            <span class="tree-icon folder-icon">📁</span>
+                            <span class="text-yellow-300">mypy_cache/</span>
+                        </div>
+                        <div class="tree-item indent-2">
+                            <span class="tree-icon folder-icon">📁</span>
+                            <span class="text-yellow-300">pytest_cache/</span>
+                        </div>
+                        <div class="tree-item indent-2">
+                            <span class="tree-icon folder-icon">📁</span>
+                            <span class="text-yellow-300">ruff_cache/</span>
+                        </div>
+                        <div class="tree-item indent-2">
+                            <span class="tree-icon folder-icon">📁</span>
+                            <span class="text-yellow-300">venv/</span>
+                        </div>
+                        <div class="tree-item indent-2">
+                            <span class="tree-icon folder-icon">📁</span>
+                            <span class="text-yellow-300">dist/</span>
+                        </div>
+                        <div class="tree-item indent-2">
+                            <span class="tree-icon folder-icon">📁</span>
+                            <span class="text-yellow-300">docs/</span>
+                        </div>
+                        <div class="tree-item indent-2">
+                            <span class="tree-icon folder-icon">📁</span>
+                            <span class="text-yellow-300">htmlcov/</span>
+                        </div>
+                        <div class="tree-item indent-2">
+                            <span class="tree-icon folder-icon">📁</span>
+                            <span class="text-yellow-300">mlruns/</span>
+                        </div>
+                        <div class="tree-item indent-2">
+                            <span class="tree-icon folder-icon">📁</span>
+                            <span class="text-yellow-300 font-semibold">src/data_ai_hub_agent/</span>
+                        </div>
+                        <div class="tree-item indent-3">
+                            <span class="tree-icon folder-icon">📁</span>
+                            <span class="text-yellow-300 font-semibold">conf/</span>
+                        </div>
+                        <div class="tree-item indent-4">
+                            <span class="tree-icon file-icon yaml-file">⚙️</span>
+                            <span class="text-green-300">dev.yml</span>
+                        </div>
+                        <div class="tree-item indent-4">
+                            <span class="tree-icon file-icon yaml-file">⚙️</span>
+                            <span class="text-green-300">prod.yml</span>
+                        </div>
+                        <div class="tree-item indent-4">
+                            <span class="tree-icon file-icon yaml-file">⚙️</span>
+                            <span class="text-green-300">staging.yml</span>
+                        </div>
+                        <div class="tree-item indent-3">
+                            <span class="tree-icon folder-icon">📁</span>
+                            <span class="text-yellow-300 font-semibold">infrastructure/</span>
+                        </div>
+                        <div class="tree-item indent-4">
+                            <span class="tree-icon folder-icon">📁</span>
+                            <span class="text-yellow-300">__pycache__/</span>
+                        </div>
+                        <div class="tree-item indent-4">
+                            <span class="tree-icon folder-icon">📁</span>
+                            <span class="text-yellow-300">clients/</span>
+                        </div>
+                        <div class="tree-item indent-4">
+                            <span class="tree-icon folder-icon">📁</span>
+                            <span class="text-yellow-300">endpoints/</span>
+                        </div>
+                        <div class="tree-item indent-4">
+                            <span class="tree-icon folder-icon">📁</span>
+                            <span class="text-yellow-300">event_handlers/</span>
+                        </div>
+                        <div class="tree-item indent-4">
+                            <span class="tree-icon file-icon python-file">🐍</span>
+                            <span class="text-blue-300">__init__.py</span>
+                        </div>
+                        <div class="tree-item indent-4">
+                            <span class="tree-icon file-icon python-file">🐍</span>
+                            <span class="text-blue-300">api.py</span>
+                        </div>
+                        <div class="tree-item indent-4">
+                            <span class="tree-icon file-icon python-file">🐍</span>
+                            <span class="text-blue-300">database.py</span>
+                        </div>
+                        <div class="tree-item indent-4">
+                            <span class="tree-icon file-icon python-file">🐍</span>
+                            <span class="text-blue-300">dependencies.py</span>
+                        </div>
+                        <div class="tree-item indent-3">
+                            <span class="tree-icon folder-icon">📁</span>
+                            <span class="text-yellow-300 font-semibold">jobs/</span>
+                        </div>
+                        <div class="tree-item indent-4">
+                            <span class="tree-icon file-icon python-file">🐍</span>
+                            <span class="text-blue-300">__init__.py</span>
+                        </div>
+                        <div class="tree-item indent-4">
+                            <span class="tree-icon file-icon python-file">🐍</span>
+                            <span class="text-blue-300">data_lifecycle_job.py</span>
+                        </div>
+                        <div class="tree-item indent-3">
+                            <span class="tree-icon folder-icon">📁</span>
+                            <span class="text-yellow-300 font-semibold">services/</span>
+                        </div>
+                        <div class="tree-item indent-4">
+                            <span class="tree-icon folder-icon">📁</span>
+                            <span class="text-yellow-300">__pycache__/</span>
+                        </div>
+                        <div class="tree-item indent-4">
+                            <span class="tree-icon file-icon python-file">🐍</span>
+                            <span class="text-blue-300">__init__.py</span>
+                        </div>
+                        <div class="tree-item indent-4">
+                            <span class="tree-icon file-icon python-file">🐍</span>
+                            <span class="text-blue-300">langgraph_service.py</span>
+                        </div>
+                        <div class="tree-item indent-4">
+                            <span class="tree-icon file-icon python-file">🐍</span>
+                            <span class="text-blue-300">observability_service.py</span>
+                        </div>
+                        <div class="tree-item indent-4">
+                            <span class="tree-icon file-icon python-file">🐍</span>
+                            <span class="text-blue-300">production_agent_service.py</span>
+                        </div>
+                        <div class="tree-item indent-4">
+                            <span class="tree-icon file-icon python-file">🐍</span>
+                            <span class="text-blue-300">production_agent.py</span>
+                        </div>
+                        <div class="tree-item indent-4">
+                            <span class="tree-icon file-icon python-file">🐍</span>
+                            <span class="text-blue-300">slack_thread_service.py</span>
+                        </div>
+                        <div class="tree-item indent-4">
+                            <span class="tree-icon file-icon python-file">🐍</span>
+                            <span class="text-blue-300">test_agent.py</span>
+                        </div>
+                        <div class="tree-item indent-4">
+                            <span class="tree-icon file-icon python-file">🐍</span>
+                            <span class="text-blue-300">vector_search_service.py</span>
+                        </div>
+                        <div class="tree-item indent-3">
+                            <span class="tree-icon file-icon python-file">🐍</span>
+                            <span class="text-blue-300">config.py</span>
+                        </div>
+                        <div class="tree-item indent-3">
+                            <span class="tree-icon file-icon python-file">🐍</span>
+                            <span class="text-blue-300">enums.py</span>
+                        </div>
+                        <div class="tree-item indent-3">
+                            <span class="tree-icon file-icon python-file">🐍</span>
+                            <span class="text-blue-300">models.py</span>
+                        </div>
+                        <div class="tree-item indent-2">
+                            <span class="tree-icon folder-icon">📁</span>
+                            <span class="text-yellow-300">tests/</span>
+                        </div>
+                        <div class="tree-item indent-2">
+                            <span class="tree-icon folder-icon">📁</span>
+                            <span class="text-yellow-300">.coverage/</span>
+                        </div>
+                        <div class="tree-item indent-2">
+                            <span class="tree-icon file-icon yaml-file">⚙️</span>
+                            <span class="text-green-300">.gitlab-ci.yml</span>
+                        </div>
+                        <div class="tree-item indent-2">
+                            <span class="tree-icon file-icon yaml-file">⚙️</span>
+                            <span class="text-green-300">app.yml</span>
+                        </div>
+                        <div class="tree-item indent-2">
+                            <span class="tree-icon file-icon yaml-file">⚙️</span>
+                            <span class="text-green-300">databricks.yml</span>
+                        </div>
+                        <div class="tree-item indent-2">
+                            <span class="tree-icon file-icon config-file">📄</span>
+                            <span class="text-orange-300">poetry.lock</span>
+                        </div>
+                        <div class="tree-item indent-2">
+                            <span class="tree-icon file-icon config-file">📄</span>
+                            <span class="text-orange-300">poetry.toml</span>
+                        </div>
+                        <div class="tree-item indent-2">
+                            <span class="tree-icon file-icon config-file">📄</span>
+                            <span class="text-orange-300">pyproject.toml</span>
+                        </div>
+                        <div class="tree-item indent-2">
+                            <span class="tree-icon file-icon config-file">📄</span>
+                            <span class="text-orange-300">requirements.txt</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projects Directory Structure -->
+            <section class="mb-16">
+                <div class="card">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-green-600 rounded-full p-3 mr-4">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-bold text-white">projects/common/data-ai-hub-agent</h2>
+                            <p class="text-gray-400 mt-1">Shared libraries and common components</p>
+                        </div>
+                    </div>
+                    
+                    <div class="directory-tree">
+                        <div class="tree-item">
+                            <span class="tree-icon folder-icon">📁</span>
+                            <span class="text-yellow-300 font-semibold">projects/</span>
+                        </div>
+                        <div class="tree-item indent-1">
+                            <span class="tree-icon folder-icon">📁</span>
+                            <span class="text-yellow-300">adas/</span>
+                        </div>
+                        <div class="tree-item indent-1">
+                            <span class="tree-icon folder-icon">📁</span>
+                            <span class="text-yellow-300">commercial/</span>
+                        </div>
+                        <div class="tree-item indent-1">
+                            <span class="tree-icon folder-icon">📁</span>
+                            <span class="text-yellow-300 font-semibold">common/</span>
+                        </div>
+                        <div class="tree-item indent-2">
+                            <span class="tree-icon folder-icon">📁</span>
+                            <span class="text-yellow-300 font-semibold">data-ai-hub-agent/</span>
+                        </div>
+                        <div class="tree-item indent-3">
+                            <span class="tree-icon folder-icon">📁</span>
+                            <span class="text-yellow-300">databricks/</span>
+                        </div>
+                        <div class="tree-item indent-3">
+                            <span class="tree-icon folder-icon">📁</span>
+                            <span class="text-yellow-300">mypy_cache/</span>
+                        </div>
+                        <div class="tree-item indent-3">
+                            <span class="tree-icon folder-icon">📁</span>
+                            <span class="text-yellow-300">pytest_cache/</span>
+                        </div>
+                        <div class="tree-item indent-3">
+                            <span class="tree-icon folder-icon">📁</span>
+                            <span class="text-yellow-300">ruff_cache/</span>
+                        </div>
+                        <div class="tree-item indent-3">
+                            <span class="tree-icon folder-icon">📁</span>
+                            <span class="text-yellow-300">venv/</span>
+                        </div>
+                        <div class="tree-item indent-3">
+                            <span class="tree-icon folder-icon">📁</span>
+                            <span class="text-yellow-300">dist/</span>
+                        </div>
+                        <div class="tree-item indent-3">
+                            <span class="tree-icon folder-icon">📁</span>
+                            <span class="text-yellow-300">docs/</span>
+                        </div>
+                        <div class="tree-item indent-3">
+                            <span class="tree-icon folder-icon">📁</span>
+                            <span class="text-yellow-300">htmlcov/</span>
+                        </div>
+                        <div class="tree-item indent-3">
+                            <span class="tree-icon folder-icon">📁</span>
+                            <span class="text-yellow-300 font-semibold">src/data_ai_hub_agent/</span>
+                        </div>
+                        <div class="tree-item indent-4">
+                            <span class="tree-icon folder-icon">📁</span>
+                            <span class="text-yellow-300">__pycache__/</span>
+                        </div>
+                        <div class="tree-item indent-4">
+                            <span class="tree-icon folder-icon">📁</span>
+                            <span class="text-yellow-300 font-semibold">conf/</span>
+                        </div>
+                        <div class="tree-item indent-5" style="margin-left: 5rem;">
+                            <span class="tree-icon file-icon yaml-file">⚙️</span>
+                            <span class="text-green-300">dev.yml</span>
+                        </div>
+                        <div class="tree-item indent-5" style="margin-left: 5rem;">
+                            <span class="tree-icon file-icon yaml-file">⚙️</span>
+                            <span class="text-green-300">prod.yml</span>
+                        </div>
+                        <div class="tree-item indent-5" style="margin-left: 5rem;">
+                            <span class="tree-icon file-icon yaml-file">⚙️</span>
+                            <span class="text-green-300">staging.yml</span>
+                        </div>
+                        <div class="tree-item indent-5" style="margin-left: 5rem;">
+                            <span class="tree-icon file-icon yaml-file">⚙️</span>
+                            <span class="text-green-300">default.yml</span>
+                        </div>
+                        <div class="tree-item indent-4">
+                            <span class="tree-icon folder-icon">📁</span>
+                            <span class="text-yellow-300 font-semibold">pipelines/</span>
+                        </div>
+                        <div class="tree-item indent-5" style="margin-left: 5rem;">
+                            <span class="tree-icon folder-icon">📁</span>
+                            <span class="text-yellow-300">__pycache__/</span>
+                        </div>
+                        <div class="tree-item indent-5" style="margin-left: 5rem;">
+                            <span class="tree-icon file-icon python-file">🐍</span>
+                            <span class="text-blue-300">__init__.py</span>
+                        </div>
+                        <div class="tree-item indent-5" style="margin-left: 5rem;">
+                            <span class="tree-icon file-icon python-file">🐍</span>
+                            <span class="text-blue-300">code_doc.py</span>
+                        </div>
+                        <div class="tree-item indent-5" style="margin-left: 5rem;">
+                            <span class="tree-icon file-icon python-file">🐍</span>
+                            <span class="text-blue-300">confluence.py</span>
+                        </div>
+                        <div class="tree-item indent-5" style="margin-left: 5rem;">
+                            <span class="tree-icon file-icon python-file">🐍</span>
+                            <span class="text-blue-300">databricks.py</span>
+                        </div>
+                        <div class="tree-item indent-5" style="margin-left: 5rem;">
+                            <span class="tree-icon file-icon python-file">🐍</span>
+                            <span class="text-blue-300">slack.py</span>
+                        </div>
+                        <div class="tree-item indent-4">
+                            <span class="tree-icon folder-icon">📁</span>
+                            <span class="text-yellow-300 font-semibold">steps/</span>
+                        </div>
+                        <div class="tree-item indent-5" style="margin-left: 5rem;">
+                            <span class="tree-icon folder-icon">📁</span>
+                            <span class="text-yellow-300">__pycache__/</span>
+                        </div>
+                        <div class="tree-item indent-5" style="margin-left: 5rem;">
+                            <span class="tree-icon folder-icon">📁</span>
+                            <span class="text-yellow-300">code_doc/</span>
+                        </div>
+                        <div class="tree-item indent-5" style="margin-left: 5rem;">
+                            <span class="tree-icon folder-icon">📁</span>
+                            <span class="text-yellow-300">confluence/</span>
+                        </div>
+                        <div class="tree-item indent-5" style="margin-left: 5rem;">
+                            <span class="tree-icon folder-icon">📁</span>
+                            <span class="text-yellow-300">databricks/</span>
+                        </div>
+                        <div class="tree-item indent-5" style="margin-left: 5rem;">
+                            <span class="tree-icon folder-icon">📁</span>
+                            <span class="text-yellow-300">gold/</span>
+                        </div>
+                        <div class="tree-item indent-5" style="margin-left: 5rem;">
+                            <span class="tree-icon folder-icon">📁</span>
+                            <span class="text-yellow-300">silver/</span>
+                        </div>
+                        <div class="tree-item indent-5" style="margin-left: 5rem;">
+                            <span class="tree-icon folder-icon">📁</span>
+                            <span class="text-yellow-300">slack/</span>
+                        </div>
+                        <div class="tree-item indent-4">
+                            <span class="tree-icon file-icon python-file">🐍</span>
+                            <span class="text-blue-300">__init__.py</span>
+                        </div>
+                        <div class="tree-item indent-4">
+                            <span class="tree-icon file-icon python-file">🐍</span>
+                            <span class="text-blue-300">configs.py</span>
+                        </div>
+                        <div class="tree-item indent-4">
+                            <span class="tree-icon file-icon python-file">🐍</span>
+                            <span class="text-blue-300">enums.py</span>
+                        </div>
+                        <div class="tree-item indent-4">
+                            <span class="tree-icon file-icon python-file">🐍</span>
+                            <span class="text-blue-300">fields.py</span>
+                        </div>
+                        <div class="tree-item indent-4">
+                            <span class="tree-icon file-icon python-file">🐍</span>
+                            <span class="text-blue-300">main.py</span>
+                        </div>
+                        <div class="tree-item indent-4">
+                            <span class="tree-icon file-icon python-file">🐍</span>
+                            <span class="text-blue-300">utils.py</span>
+                        </div>
+                        <div class="tree-item indent-3">
+                            <span class="tree-icon folder-icon">📁</span>
+                            <span class="text-yellow-300">tests/</span>
+                        </div>
+                        <div class="tree-item indent-3">
+                            <span class="tree-icon folder-icon">📁</span>
+                            <span class="text-yellow-300">.coverage/</span>
+                        </div>
+                        <div class="tree-item indent-3">
+                            <span class="tree-icon file-icon yaml-file">⚙️</span>
+                            <span class="text-green-300">.gitlab-ci.yml</span>
+                        </div>
+                        <div class="tree-item indent-3">
+                            <span class="tree-icon file-icon yaml-file">⚙️</span>
+                            <span class="text-green-300">databricks.yml</span>
+                        </div>
+                        <div class="tree-item indent-3">
+                            <span class="tree-icon file-icon config-file">📄</span>
+                            <span class="text-orange-300">poetry.lock</span>
+                        </div>
+                        <div class="tree-item indent-3">
+                            <span class="tree-icon file-icon config-file">📄</span>
+                            <span class="text-orange-300">poetry.toml</span>
+                        </div>
+                        <div class="tree-item indent-3">
+                            <span class="tree-icon file-icon config-file">📄</span>
+                            <span class="text-orange-300">pyproject.toml</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Key Components Explanation -->
+            <section class="mb-16">
+                <div class="card">
+                    <h2 class="section-title text-3xl font-bold mb-8 text-center w-full">Key Components</h2>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="bg-slate-700 p-6 rounded-lg">
+                            <h3 class="text-xl font-semibold text-blue-400 mb-4">Apps Structure</h3>
+                            <div class="space-y-3 text-sm">
+                                <div class="flex items-start">
+                                    <span class="text-green-400 mr-2">📁</span>
+                                    <div>
+                                        <span class="font-semibold text-green-300">conf/</span>
+                                        <p class="text-gray-300">Environment-specific configurations (dev, staging, prod)</p>
+                                    </div>
                                 </div>
-                                <div class="flex items-center">
-                                    <div class="w-2 h-2 bg-green-400 rounded-full mr-3"></div>
-                                    <span class="text-gray-300">Isolated data pipeline stages with clear interfaces</span>
+                                <div class="flex items-start">
+                                    <span class="text-blue-400 mr-2">📁</span>
+                                    <div>
+                                        <span class="font-semibold text-blue-300">infrastructure/</span>
+                                        <p class="text-gray-300">API endpoints, database clients, and event handlers</p>
+                                    </div>
                                 </div>
-                                <div class="flex items-center">
-                                    <div class="w-2 h-2 bg-purple-400 rounded-full mr-3"></div>
-                                    <span class="text-gray-300">Comprehensive test coverage for all components</span>
+                                <div class="flex items-start">
+                                    <span class="text-purple-400 mr-2">📁</span>
+                                    <div>
+                                        <span class="font-semibold text-purple-300">services/</span>
+                                        <p class="text-gray-300">Core agent services including LangGraph and vector search</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <span class="text-cyan-400 mr-2">📁</span>
+                                    <div>
+                                        <span class="font-semibold text-cyan-300">jobs/</span>
+                                        <p class="text-gray-300">Data lifecycle and batch processing jobs</p>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="space-y-3">
-                                <div class="flex items-center">
-                                    <div class="w-2 h-2 bg-orange-400 rounded-full mr-3"></div>
-                                    <span class="text-gray-300">Modular LangGraph workflow architecture</span>
+                        </div>
+                        
+                        <div class="bg-slate-700 p-6 rounded-lg">
+                            <h3 class="text-xl font-semibold text-green-400 mb-4">Projects Structure</h3>
+                            <div class="space-y-3 text-sm">
+                                <div class="flex items-start">
+                                    <span class="text-green-400 mr-2">📁</span>
+                                    <div>
+                                        <span class="font-semibold text-green-300">conf/</span>
+                                        <p class="text-gray-300">Environment-specific configurations (dev, staging, prod)</p>
+                                    </div>
                                 </div>
-                                <div class="flex items-center">
-                                    <div class="w-2 h-2 bg-cyan-400 rounded-full mr-3"></div>
-                                    <span class="text-gray-300">MLflow observability and monitoring integration</span>
+                                <div class="flex items-start">
+                                    <span class="text-blue-400 mr-2">📁</span>
+                                    <div>
+                                        <span class="font-semibold text-blue-300">pipelines/</span>
+                                        <p class="text-gray-300">Data processing pipeline definitions</p>
+                                    </div>
                                 </div>
-                                <div class="flex items-center">
-                                    <div class="w-2 h-2 bg-red-400 rounded-full mr-3"></div>
-                                    <span class="text-gray-300">Scalable infrastructure resource management</span>
+                                <div class="flex items-start">
+                                    <span class="text-purple-400 mr-2">📁</span>
+                                    <div>
+                                        <span class="font-semibold text-purple-300">steps/</span>
+                                        <p class="text-gray-300">Individual pipeline step implementations</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <span class="text-cyan-400 mr-2">🐍</span>
+                                    <div>
+                                        <span class="font-semibold text-cyan-300">main.py</span>
+                                        <p class="text-gray-300">Main application entry point</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -227,74 +695,46 @@
                 </div>
             </section>
 
-            <!-- Future Integration -->
+            <!-- Architecture Overview -->
             <section class="card">
-                <h2 class="section-title text-3xl font-bold mb-8 text-center w-full">Future Integration & Scalability</h2>
+                <h2 class="section-title text-3xl font-bold mb-8 text-center w-full">Architecture Overview</h2>
                 <div class="bg-slate-700 p-8 rounded-lg">
                     <div class="text-center mb-8">
-                        <h3 class="text-2xl font-semibold text-green-400 mb-4">Seamless Integration Framework</h3>
-                        <p class="text-gray-300 max-w-4xl mx-auto">Future iterations of the Data-AI-Hub Agent are designed for seamless integration with other projects and applications within the ecosystem.</p>
+                        <p class="text-gray-300 max-w-4xl mx-auto">
+                            The Data-AI-Hub Agent follows a modular architecture with clear separation between application deployment (apps) and shared components (projects/common). This structure enables efficient development, testing, and deployment while maintaining code reusability across different environments.
+                        </p>
                     </div>
                     
-                    <div class="grid md:grid-cols-2 gap-8">
-                        <div class="bg-gradient-to-br from-green-900/30 to-green-800/30 border border-green-700/50 p-6 rounded-lg">
-                            <h4 class="text-xl font-semibold text-green-400 mb-4">Integration Benefits</h4>
-                            <div class="space-y-4">
-                                <div class="flex items-start">
-                                    <div class="w-2 h-2 bg-green-400 rounded-full mr-3 mt-2"></div>
-                                    <div>
-                                        <h5 class="font-semibold text-green-300">Plug-and-Play Architecture</h5>
-                                        <p class="text-gray-300 text-sm">Modular design allows easy integration with existing Databricks workflows</p>
-                                    </div>
-                                </div>
-                                <div class="flex items-start">
-                                    <div class="w-2 h-2 bg-green-400 rounded-full mr-3 mt-2"></div>
-                                    <div>
-                                        <h5 class="font-semibold text-green-300">Standardized Interfaces</h5>
-                                        <p class="text-gray-300 text-sm">Common APIs and data formats for cross-project compatibility</p>
-                                    </div>
-                                </div>
-                                <div class="flex items-start">
-                                    <div class="w-2 h-2 bg-green-400 rounded-full mr-3 mt-2"></div>
-                                    <div>
-                                        <h5 class="font-semibold text-green-300">Shared Infrastructure</h5>
-                                        <p class="text-gray-300 text-sm">Leverages existing platform resources and configurations</p>
-                                    </div>
-                                </div>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="bg-gradient-to-br from-blue-900/50 to-blue-800/50 border border-blue-700/50 p-6 rounded-lg text-center">
+                            <div class="bg-blue-500/20 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                                <svg class="w-8 h-8 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                                </svg>
                             </div>
+                            <h4 class="text-lg font-semibold text-blue-400 mb-2">Modular Design</h4>
+                            <p class="text-gray-300 text-sm">Clear separation between application logic and shared components</p>
                         </div>
                         
-                        <div class="bg-gradient-to-br from-blue-900/30 to-blue-800/30 border border-blue-700/50 p-6 rounded-lg">
-                            <h4 class="text-xl font-semibold text-blue-400 mb-4">Developer Experience</h4>
-                            <div class="space-y-4">
-                                <div class="flex items-start">
-                                    <div class="w-2 h-2 bg-blue-400 rounded-full mr-3 mt-2"></div>
-                                    <div>
-                                        <h5 class="font-semibold text-blue-300">Comprehensive Documentation</h5>
-                                        <p class="text-gray-300 text-sm">Detailed guides for understanding and extending the codebase</p>
-                                    </div>
-                                </div>
-                                <div class="flex items-start">
-                                    <div class="w-2 h-2 bg-blue-400 rounded-full mr-3 mt-2"></div>
-                                    <div>
-                                        <h5 class="font-semibold text-blue-300">Clear Code Organization</h5>
-                                        <p class="text-gray-300 text-sm">Well-structured codebase following established patterns and conventions</p>
-                                    </div>
-                                </div>
-                                <div class="flex items-start">
-                                    <div class="w-2 h-2 bg-blue-400 rounded-full mr-3 mt-2"></div>
-                                    <div>
-                                        <h5 class="font-semibold text-blue-300">Minimal Learning Curve</h5>
-                                        <p class="text-gray-300 text-sm">Familiar patterns reduce onboarding time for new developers</p>
-                                    </div>
-                                </div>
+                        <div class="bg-gradient-to-br from-green-900/50 to-green-800/50 border border-green-700/50 p-6 rounded-lg text-center">
+                            <div class="bg-green-500/20 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                                <svg class="w-8 h-8 text-green-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                                </svg>
                             </div>
+                            <h4 class="text-lg font-semibold text-green-400 mb-2">Reusability</h4>
+                            <p class="text-gray-300 text-sm">Common components can be shared across multiple applications</p>
                         </div>
-                    </div>
-                    
-                    <div class="mt-8 bg-slate-600 p-6 rounded-lg text-center">
-                        <h4 class="text-lg font-semibold text-purple-400 mb-3">Documentation Gap Mitigation</h4>
-                        <p class="text-gray-300">Ongoing documentation efforts will bridge any knowledge gaps, ensuring that future developers can quickly understand and contribute to the project's evolution.</p>
+                        
+                        <div class="bg-gradient-to-br from-purple-900/50 to-purple-800/50 border border-purple-700/50 p-6 rounded-lg text-center">
+                            <div class="bg-purple-500/20 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                                <svg class="w-8 h-8 text-purple-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                </svg>
+                            </div>
+                            <h4 class="text-lg font-semibold text-purple-400 mb-2">Scalability</h4>
+                            <p class="text-gray-300 text-sm">Architecture supports easy scaling and deployment across environments</p>
+                        </div>
                     </div>
                 </div>
             </section>
