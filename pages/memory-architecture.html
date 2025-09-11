@@ -9,8 +9,69 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../styles/shared-styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <style>
+        .mermaid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .mermaid svg {
+            max-width: 100%;
+            height: auto;
+            max-height: 350px !important;
+        }
+        
+        /* Memory Card Specific Styles - Override hover behavior */
+        .memory-card {
+            height: 500px;
+            cursor: pointer;
+        }
+        
+        .memory-card .flip-card-inner {
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        
+        /* IMPORTANT: Override any hover-based flipping */
+        .memory-card:hover .flip-card-inner {
+            transform: none !important;
+        }
+        
+        .memory-card .flip-card-inner.flipped {
+            transform: rotateY(180deg) !important;
+        }
+        
+        .memory-card .flip-card-front,
+        .memory-card .flip-card-back {
+            height: 100%;
+            backface-visibility: hidden;
+            position: absolute;
+            width: 100%;
+            border-radius: 0.5rem;
+        }
+        
+        .memory-card .flip-card-back {
+            transform: rotateY(180deg);
+        }
+        
+        .memory-card .flip-hint {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            background: rgba(59, 130, 246, 0.9);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            z-index: 10;
+        }
+    </style>
 </head>
 <body class="text-gray-200">
+
+<script src="../styles/shared-navigation.js"></script>
 
 <!-- Sidebar Toggle Button -->
 <button class="sidebar-toggle" onclick="toggleSidebar()">
@@ -33,6 +94,15 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
                 </svg>
                 Home
+            </div>
+        </a>
+        
+        <a href="rationale.html" class="nav-item">
+            <div class="flex items-center">
+                <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                </svg>
+                Rationale
             </div>
         </a>
         
@@ -118,7 +188,7 @@
         </div>
     </a>
 </div>
-</nav> 
+</nav>
 
     <!-- Main Content -->
     <main class="main-content" id="mainContent">
@@ -128,150 +198,281 @@
                 <p class="mt-4 text-lg md:text-xl text-blue-300 max-w-3xl mx-auto">Three memory systems powering intelligent responses</p>
             </header>
 
-            <!-- Memory Patterns and Use Cases -->
+            <!-- Memory Architecture Diagram -->
             <section class="mb-16 card">
-                <h2 class="section-title text-3xl font-bold mb-8 text-center w-full">Memory Patterns and Use Cases</h2>
+                <h2 class="section-title text-3xl font-bold mb-8 text-center w-full">Memory Architecture Overview</h2>
                 <div class="bg-slate-700 p-8 rounded-lg">
-                    <!-- Memory Types Diagram -->
-                    <div class="mb-8">
-                        <svg viewBox="0 0 800 400" class="w-full h-96 mb-8">
-                            <defs>
-                                <linearGradient id="memoryGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" style="stop-color:#1e293b;stop-opacity:1" />
-                                    <stop offset="100%" style="stop-color:#0f172a;stop-opacity:1" />
-                                </linearGradient>
-                                <marker id="memoryArrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
-                                    <polygon points="0 0, 8 3, 0 6" fill="#60a5fa" />
-                                </marker>
-                            </defs>
-                            <rect width="800" height="400" fill="url(#memoryGradient)" rx="10"/>
+                    <div class="flip-card memory-card">
+                        <div class="flip-card-inner" onclick="this.classList.toggle('flipped')">
+                            <!-- SVG Front -->
+                            <div class="flip-card-front bg-gradient-to-br from-slate-700 to-slate-800 border border-slate-600">
+                                <div class="p-4 h-full flex flex-col justify-center">
+                                    <svg viewBox="0 0 1200 500" class="w-full h-full">
+                                    <defs>
+                                        <linearGradient id="memoryGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" style="stop-color:#1e293b;stop-opacity:1" />
+                                            <stop offset="100%" style="stop-color:#0f172a;stop-opacity:1" />
+                                        </linearGradient>
+                                        <marker id="memoryArrow" markerWidth="12" markerHeight="10" refX="11" refY="5" orient="auto">
+                                            <polygon points="0 0, 12 5, 0 10" fill="#60a5fa" />
+                                        </marker>
+                                    </defs>
+                                    <rect width="1200" height="500" fill="url(#memoryGradient)" rx="10"/>
+                                    
+                                    <!-- Semantic Memory -->
+                                    <g transform="translate(120, 60)">
+                                        <rect x="0" y="0" width="220" height="140" fill="#1e40af" stroke="#3b82f6" stroke-width="3" rx="12"/>
+                                        <text x="110" y="45" text-anchor="middle" fill="#dbeafe" font-size="20" font-weight="bold">Semantic Memory</text>
+                                        <text x="110" y="75" text-anchor="middle" fill="#bfdbfe" font-size="16">Vector Search Index</text>
+                                        <text x="110" y="105" text-anchor="middle" fill="#bfdbfe" font-size="14">GitLab • Confluence</text>
+                                        <text x="110" y="125" text-anchor="middle" fill="#bfdbfe" font-size="14">Databricks • Slack</text>
+                                    </g>
+                                    
+                                    <!-- Short Term Memory -->
+                                    <g transform="translate(490, 60)">
+                                        <rect x="0" y="0" width="220" height="140" fill="#166534" stroke="#16a34a" stroke-width="3" rx="12"/>
+                                        <text x="110" y="40" text-anchor="middle" fill="#dcfce7" font-size="20" font-weight="bold">Short Term</text>
+                                        <text x="110" y="65" text-anchor="middle" fill="#dcfce7" font-size="20" font-weight="bold">Memory</text>
+                                        <text x="110" y="95" text-anchor="middle" fill="#bbf7d0" font-size="16">Thread Context</text>
+                                        <text x="110" y="120" text-anchor="middle" fill="#bbf7d0" font-size="14">Conversation & User Context</text>
+                                    </g>
+                                    
+                                    <!-- Episodic Memory -->
+                                    <g transform="translate(860, 60)">
+                                        <rect x="0" y="0" width="220" height="140" fill="#581c87" stroke="#8b5cf6" stroke-width="3" rx="12" opacity="0.7"/>
+                                        <text x="110" y="45" text-anchor="middle" fill="#f3e8ff" font-size="20" font-weight="bold">Episodic Memory</text>
+                                        <text x="110" y="75" text-anchor="middle" fill="#e9d5ff" font-size="16">User Patterns</text>
+                                        <text x="110" y="105" text-anchor="middle" fill="#e9d5ff" font-size="14">Interaction & Resolution</text>
+                                        <text x="110" y="125" text-anchor="middle" fill="#e9d5ff" font-size="12" opacity="0.8">(Future Implementation)</text>
+                                    </g>
+                                    
+                                    <!-- RAG Response Generation -->
+                                    <g transform="translate(420, 320)">
+                                        <rect x="0" y="0" width="360" height="120" fill="#dc2626" stroke="#ef4444" stroke-width="4" rx="18"/>
+                                        <text x="180" y="50" text-anchor="middle" fill="#fecaca" font-size="24" font-weight="bold">RAG Response Generation</text>
+                                        <text x="180" y="85" text-anchor="middle" fill="#fca5a5" font-size="18">Context + Retrieved Docs</text>
+                                    </g>
+                                    
+                                    <!-- Arrows pointing down -->
+                                    <!-- From Semantic Memory -->
+                                    <path d="M 230 200 L 230 270 L 520 270 L 520 320" fill="none" stroke="#60a5fa" stroke-width="4" marker-end="url(#memoryArrow)"/>
+                                    
+                                    <!-- From Short Term Memory -->
+                                    <path d="M 600 200 L 600 320" fill="none" stroke="#60a5fa" stroke-width="4" marker-end="url(#memoryArrow)"/>
+                                    
+                                    <!-- From Episodic Memory -->
+                                    <path d="M 970 200 L 970 270 L 680 270 L 680 320" fill="none" stroke="#60a5fa" stroke-width="4" marker-end="url(#memoryArrow)" opacity="0.7" stroke-dasharray="10,6"/>
+                                    </svg>
+                                </div>
+                                <div class="flip-hint">Click to see Mermaid JS</div>
+                            </div>
                             
-                            <!-- Semantic Memory -->
-                            <g transform="translate(50, 50)">
-                                <rect x="0" y="0" width="140" height="100" fill="#1e40af" stroke="#3b82f6" stroke-width="2" rx="10"/>
-                                <text x="70" y="25" text-anchor="middle" fill="#dbeafe" font-size="14" font-weight="bold">Semantic Memory</text>
-                                <text x="70" y="45" text-anchor="middle" fill="#bfdbfe" font-size="11">Vector Search Index</text>
-                                <text x="70" y="60" text-anchor="middle" fill="#bfdbfe" font-size="10">• GitLab Docs</text>
-                                <text x="70" y="75" text-anchor="middle" fill="#bfdbfe" font-size="10">• Confluence</text>
-                                <text x="70" y="90" text-anchor="middle" fill="#bfdbfe" font-size="10">• KB Articles</text>
-                            </g>
-                            
-                            <!-- Short Term Memory -->
-                            <g transform="translate(50, 200)">
-                                <rect x="0" y="0" width="140" height="100" fill="#166534" stroke="#16a34a" stroke-width="2" rx="10"/>
-                                <text x="70" y="25" text-anchor="middle" fill="#dcfce7" font-size="14" font-weight="bold">Short Term</text>
-                                <text x="70" y="40" text-anchor="middle" fill="#dcfce7" font-size="14" font-weight="bold">Memory</text>
-                                <text x="70" y="60" text-anchor="middle" fill="#bbf7d0" font-size="11">Thread Context</text>
-                                <text x="70" y="75" text-anchor="middle" fill="#bbf7d0" font-size="10">• Conversation History</text>
-                                <text x="70" y="90" text-anchor="middle" fill="#bbf7d0" font-size="10">• User Context</text>
-                            </g>
-                            
-                            <!-- Episodic Memory -->
-                            <g transform="translate(250, 125)">
-                                <rect x="0" y="0" width="140" height="100" fill="#581c87" stroke="#8b5cf6" stroke-width="2" rx="10" opacity="0.6"/>
-                                <text x="70" y="25" text-anchor="middle" fill="#f3e8ff" font-size="14" font-weight="bold">Episodic Memory</text>
-                                <text x="70" y="45" text-anchor="middle" fill="#e9d5ff" font-size="11">User Patterns</text>
-                                <text x="70" y="60" text-anchor="middle" fill="#e9d5ff" font-size="10">• Interaction History</text>
-                                <text x="70" y="75" text-anchor="middle" fill="#e9d5ff" font-size="10">• Resolution Tracking</text>
-                                <text x="70" y="90" text-anchor="middle" fill="#e9d5ff" font-size="10" opacity="0.7">(Not Implemented)</text>
-                            </g>
-                            
-                            <!-- RAG Response Generation -->
-                            <g transform="translate(550, 150)">
-                                <rect x="0" y="0" width="180" height="80" fill="#dc2626" stroke="#ef4444" stroke-width="3" rx="15"/>
-                                <text x="90" y="30" text-anchor="middle" fill="#fecaca" font-size="16" font-weight="bold">RAG Response</text>
-                                <text x="90" y="50" text-anchor="middle" fill="#fecaca" font-size="16" font-weight="bold">Generation</text>
-                                <text x="90" y="70" text-anchor="middle" fill="#fca5a5" font-size="12">Context + Retrieved Docs</text>
-                            </g>
-                            
-                            <!-- Arrows -->
-                            <!-- From Semantic Memory -->
-                            <path d="M 190 100 Q 350 100 520 170" fill="none" stroke="#60a5fa" stroke-width="3" marker-end="url(#memoryArrow)"/>
-                            
-                            <!-- From Short Term Memory -->
-                            <path d="M 190 250 Q 350 250 520 210" fill="none" stroke="#60a5fa" stroke-width="3" marker-end="url(#memoryArrow)"/>
-                            
-                            <!-- From Episodic Memory -->
-                            <path d="M 390 175 Q 450 175 520 185" fill="none" stroke="#60a5fa" stroke-width="3" marker-end="url(#memoryArrow)" opacity="0.6" stroke-dasharray="8,4"/>
-                            
-                            <!-- Labels for arrows -->
-                            <text x="300" y="85" text-anchor="middle" fill="#94a3b8" font-size="11">Documentation</text>
-                            <text x="300" y="265" text-anchor="middle" fill="#94a3b8" font-size="11">Conversation</text>
-                            <text x="450" y="165" text-anchor="middle" fill="#94a3b8" font-size="11" opacity="0.7">Future Enhancement</text>
-                        </svg>
+                            <!-- Mermaid Back -->
+                            <div class="flip-card-back bg-white">
+                                <div class="mermaid p-2 h-full w-full flex justify-center items-center text-sm">
+                                    graph TD
+                                        A[Semantic Memory<br/>Vector Search Index<br/>GitLab • Confluence • Databricks • Slack] --> D[RAG Response Generation<br/>Context + Retrieved Docs]
+                                        B[Short Term Memory<br/>Thread Context<br/>Conversation History • User Context] --> D
+                                        C[Episodic Memory<br/>User Patterns<br/>Interaction History • Resolution Tracking<br/>Future Implementation] -.-> D
+                                        
+                                        classDef semantic fill:#1e40af,stroke:#3b82f6,stroke-width:2px,color:#dbeafe
+                                        classDef shortTerm fill:#166534,stroke:#16a34a,stroke-width:2px,color:#dcfce7
+                                        classDef episodic fill:#581c87,stroke:#8b5cf6,stroke-width:2px,color:#f3e8ff,opacity:0.7
+                                        classDef rag fill:#dc2626,stroke:#ef4444,stroke-width:3px,color:#fecaca
+                                        
+                                        class A semantic
+                                        class B shortTerm
+                                        class C episodic
+                                        class D rag
+                                </div>
+                                <div class="flip-hint">Click to see SVG</div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 text-center mt-6">Three complementary memory systems work together to provide contextual, intelligent responses by combining documentation knowledge, conversation context, and user interaction patterns.</p>
+                </div>
+            </section>
+
+            <!-- Semantic Memory -->
+            <section class="mb-16 card">
+                <h2 class="section-title text-3xl font-bold mb-8 text-center w-full">Semantic Memory</h2>
+                <div class="bg-gradient-to-br from-blue-900/50 to-blue-800/50 border border-blue-700/50 p-8 rounded-lg">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-blue-500/20 rounded-full p-4 w-16 h-16 mr-6 flex items-center justify-center">
+                            <svg class="w-8 h-8 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-semibold text-blue-400 mb-2">Vector Search Index</h3>
+                            <p class="text-gray-300">Comprehensive knowledge base containing documentation and code from four knowledge sources</p>
+                        </div>
                     </div>
                     
-                    <div class="grid md:grid-cols-3 gap-8">
-                        <div class="bg-gradient-to-br from-blue-900/50 to-blue-800/50 border border-blue-700/50 p-6 rounded-lg text-center">
-                            <div class="bg-blue-500/20 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                                <svg class="w-8 h-8 text-blue-300 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
-                                </svg>
-                            </div>
-                            <h3 class="text-xl font-semibold text-blue-400 mb-3">Semantic Memory</h3>
-                            <p class="text-gray-300 text-sm">Vector search index containing documentation and code from all knowledge sources</p>
-                            <div class="mt-4 space-y-2">
-                                <div class="bg-slate-600 px-3 py-1 rounded text-xs">GitLab Docs</div>
-                                <div class="bg-slate-600 px-3 py-1 rounded text-xs">Confluence Pages</div>
-                                <div class="bg-slate-600 px-3 py-1 rounded text-xs">KB Articles</div>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-gradient-to-br from-green-900/50 to-green-800/50 border border-green-700/50 p-6 rounded-lg text-center">
-                            <div class="bg-green-500/20 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                                <svg class="w-8 h-8 text-green-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
-                                </svg>
-                            </div>
-                            <h3 class="text-xl font-semibold text-green-400 mb-3">Short Term Memory</h3>
-                            <p class="text-gray-300 text-sm">Context from the current conversation thread for coherent multi-turn dialogue</p>
-                            <div class="mt-4 space-y-2">
-                                <div class="bg-slate-600 px-3 py-1 rounded text-xs">Thread History</div>
-                                <div class="bg-slate-600 px-3 py-1 rounded text-xs">User Context</div>
-                                <div class="bg-slate-600 px-3 py-1 rounded text-xs">Previous Q&A</div>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="text-lg font-semibold text-white mb-4">Data Sources</h4>
+                            <div class="space-y-3">
+                                <div class="bg-slate-600/50 p-4 rounded-lg">
+                                    <h5 class="font-semibold text-blue-300 mb-2">GitLab</h5>
+                                    <p class="text-sm text-gray-400">Documentation and MRs Summaries</p>
+                                </div>
+                                <div class="bg-slate-600/50 p-4 rounded-lg">
+                                    <h5 class="font-semibold text-blue-300 mb-2">Confluence</h5>
+                                    <p class="text-sm text-gray-400">Pages under "Interested in Data? Start here!"</p>
+                                </div>
+                                <div class="bg-slate-600/50 p-4 rounded-lg">
+                                    <h5 class="font-semibold text-blue-300 mb-2">Databricks</h5>
+                                    <p class="text-sm text-gray-400">Knowledge Base Articles and OfficialDocumentation</p>
+                                </div>
+                                <div class="bg-slate-600/50 p-4 rounded-lg">
+                                    <h5 class="font-semibold text-blue-300 mb-2">Slack</h5>
+                                    <p class="text-sm text-gray-400">Past conversations from support channels</p>
+                                </div>
                             </div>
                         </div>
                         
-                        <div class="bg-gradient-to-br from-purple-900/50 to-purple-800/50 border border-purple-700/50 p-6 rounded-lg text-center">
-                            <div class="bg-purple-500/20 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                                <svg class="w-8 h-8 text-purple-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
-                                </svg>
-                            </div>
-                            <h3 class="text-xl font-semibold text-purple-400 mb-3">Episodic Memory</h3>
-                            <p class="text-gray-300 text-sm">Tracks user interaction patterns and issue resolution history</p>
-                            <div class="mt-4 space-y-2">
-                                <div class="bg-slate-600 px-3 py-1 rounded text-xs opacity-60">Not Yet Implemented</div>
-                                <div class="bg-slate-600 px-3 py-1 rounded text-xs opacity-60">User Patterns</div>
-                                <div class="bg-slate-600 px-3 py-1 rounded text-xs opacity-60">Resolution Tracking</div>
+                        <div>
+                            <h4 class="text-lg font-semibold text-white mb-4">Example Use Cases</h4>
+                            <div class="space-y-3">
+                                <div class="bg-blue-900/30 p-4 rounded-lg border-l-4 border-blue-400">
+                                    <h5 class="font-semibold text-blue-300 mb-2">📚 Documentation Discovery</h5>
+                                    <p class="text-sm text-gray-300">"How do I set up a DAB for a lakehouse app?"</p>
+                                    <p class="text-xs text-blue-200 mt-2">→ Retrieves relevant developer guides from data-atlas-terraform GitLab repo and Databricks pages</p>
+                                </div>
+                                <div class="bg-blue-900/30 p-4 rounded-lg border-l-4 border-blue-400">
+                                    <h5 class="font-semibold text-blue-300 mb-2">🔍 Cross-Platform Search</h5>
+                                    <p class="text-sm text-gray-300">"What's the process for onboarding new data scientists?"</p>
+                                    <p class="text-xs text-blue-200 mt-2">→ Finds procedures across multiple knowledge sources</p>
+                                </div>
+                                <div class="bg-blue-900/30 p-4 rounded-lg border-l-4 border-blue-400">
+                                    <h5 class="font-semibold text-blue-300 mb-2">⚡ Instant Access</h5>
+                                    <p class="text-sm text-gray-300">"Show me the latest API changes for MLflow integration"</p>
+                                    <p class="text-xs text-blue-200 mt-2">→ Surfaces recent updates from Databricks documentation</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Business Value -->
+            <!-- Short Term Memory -->
             <section class="mb-16 card">
-                <h2 class="section-title text-3xl font-bold mb-8 text-center w-full">Business Value & Impact</h2>
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div class="bg-slate-700 p-8 rounded-lg">
-                        <div class="icon-bg mb-4 mx-auto w-fit">
-                            <svg class="w-8 h-8 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                <h2 class="section-title text-3xl font-bold mb-8 text-center w-full">Short Term Memory</h2>
+                <div class="bg-gradient-to-br from-green-900/50 to-green-800/50 border border-green-700/50 p-8 rounded-lg">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-green-500/20 rounded-full p-4 w-16 h-16 mr-6 flex items-center justify-center">
+                            <svg class="w-8 h-8 text-green-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
                             </svg>
                         </div>
-                        <h3 class="text-xl font-semibold text-blue-400 mb-4 text-center">Improved Knowledge Accessibility</h3>
-                        <p class="text-gray-300 text-center">Dramatically improves knowledge accessibility and discoverability across the entire platform ecosystem.</p>
+                        <div>
+                            <h3 class="text-2xl font-semibold text-green-400 mb-2">Thread Context Management</h3>
+                            <p class="text-gray-300">Maintains conversation continuity for coherent multi-turn dialogue</p>
+                        </div>
                     </div>
                     
-                    <div class="bg-slate-700 p-8 rounded-lg">
-                        <div class="icon-bg mb-4 mx-auto w-fit">
-                            <svg class="w-8 h-8 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="text-lg font-semibold text-white mb-4">Context Components</h4>
+                            <div class="space-y-3">
+                                <div class="bg-slate-600/50 p-4 rounded-lg">
+                                    <h5 class="font-semibold text-green-300 mb-2">Conversation History</h5>
+                                    <p class="text-sm text-gray-400">Previous questions and answers in the current thread</p>
+                                </div>
+                                <div class="bg-slate-600/50 p-4 rounded-lg">
+                                    <h5 class="font-semibold text-green-300 mb-2">User Context</h5>
+                                    <p class="text-sm text-gray-400">Role, team, channel context</p>
+                                </div>
+                                <div class="bg-slate-600/50 p-4 rounded-lg">
+                                    <h5 class="font-semibold text-green-300 mb-2">Session State</h5>
+                                    <p class="text-sm text-gray-400">Current workflow, active troubleshooting steps</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-lg font-semibold text-white mb-4">Example Use Cases</h4>
+                            <div class="space-y-3">
+                                <div class="bg-green-900/30 p-4 rounded-lg border-l-4 border-green-400">
+                                    <h5 class="font-semibold text-green-300 mb-2">🔄 Follow-up Questions</h5>
+                                    <p class="text-sm text-gray-300">"Can you explain that last step in more detail?"</p>
+                                    <p class="text-xs text-green-200 mt-2">→ References previous response context</p>
+                                </div>
+                                <div class="bg-green-900/30 p-4 rounded-lg border-l-4 border-green-400">
+                                    <h5 class="font-semibold text-green-300 mb-2">🎯 Contextual Refinement</h5>
+                                    <p class="text-sm text-gray-300">"Actually, I'm working with the staging environment"</p>
+                                    <p class="text-xs text-green-200 mt-2">→ Adjusts all subsequent responses for staging context</p>
+                                </div>
+                                <div class="bg-green-900/30 p-4 rounded-lg border-l-4 border-green-400">
+                                    <h5 class="font-semibold text-green-300 mb-2">📋 Multi-step Workflows</h5>
+                                    <p class="text-sm text-gray-300">"What's the next step after configuring the cluster?"</p>
+                                    <p class="text-xs text-green-200 mt-2">→ Continues from where the conversation left off</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Episodic Memory -->
+            <section class="mb-16 card">
+                <h2 class="section-title text-3xl font-bold mb-8 text-center w-full">Episodic Memory</h2>
+                <div class="bg-gradient-to-br from-purple-900/50 to-purple-800/50 border border-purple-700/50 p-8 rounded-lg">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-purple-500/20 rounded-full p-4 w-16 h-16 mr-6 flex items-center justify-center">
+                            <svg class="w-8 h-8 text-purple-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
                             </svg>
                         </div>
-                        <h3 class="text-xl font-semibold text-blue-400 mb-4 text-center">Accelerated Onboarding</h3>
-                        <p class="text-gray-300 text-center">Accelerates onboarding and problem resolution for <span class="text-blue-300 font-semibold">10K+ Databricks users</span> with a lean team of <span class="text-blue-300 font-semibold">5 platform engineers + &lt;25 data domain stewards</span>.</p>
+                        <div>
+                            <h3 class="text-2xl font-semibold text-purple-400 mb-2">User Pattern Recognition</h3>
+                            <p class="text-gray-300">Tracks interaction patterns and resolution history for personalized support</p>
+                            <div class="mt-2 bg-purple-900/40 px-3 py-1 rounded-full inline-block">
+                                <span class="text-xs text-purple-200">🚧 Future Implementation</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="text-lg font-semibold text-white mb-4">Planned Capabilities</h4>
+                            <div class="space-y-3">
+                                <div class="bg-slate-600/50 p-4 rounded-lg opacity-70">
+                                    <h5 class="font-semibold text-purple-300 mb-2">Interaction History</h5>
+                                    <p class="text-sm text-gray-400">Long-term patterns of user questions and preferences</p>
+                                </div>
+                                <div class="bg-slate-600/50 p-4 rounded-lg opacity-70">
+                                    <h5 class="font-semibold text-purple-300 mb-2">Resolution Tracking</h5>
+                                    <p class="text-sm text-gray-400">Success rates of different solution approaches per user</p>
+                                </div>
+                                <div class="bg-slate-600/50 p-4 rounded-lg opacity-70">
+                                    <h5 class="font-semibold text-purple-300 mb-2">Learning Preferences</h5>
+                                    <p class="text-sm text-gray-400">Preferred communication styles and detail levels</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-lg font-semibold text-white mb-4">Example Use Cases</h4>
+                            <div class="space-y-3">
+                                <div class="bg-purple-900/30 p-4 rounded-lg border-l-4 border-purple-400 opacity-70">
+                                    <h5 class="font-semibold text-purple-300 mb-2">🎯 Personalized Responses</h5>
+                                    <p class="text-sm text-gray-300">"Based on your previous questions, you might also want to know..."</p>
+                                    <p class="text-xs text-purple-200 mt-2">→ Proactive suggestions based on user patterns</p>
+                                </div>
+                                <div class="bg-purple-900/30 p-4 rounded-lg border-l-4 border-purple-400 opacity-70">
+                                    <h5 class="font-semibold text-purple-300 mb-2">📈 Learning Adaptation</h5>
+                                    <p class="text-sm text-gray-300">Adjusts explanation depth based on user expertise level</p>
+                                    <p class="text-xs text-purple-200 mt-2">→ More technical details for experienced users</p>
+                                </div>
+                                <div class="bg-purple-900/30 p-4 rounded-lg border-l-4 border-purple-400 opacity-70">
+                                    <h5 class="font-semibold text-purple-300 mb-2">🔄 Proactive Support</h5>
+                                    <p class="text-sm text-gray-300">"You typically encounter this issue after cluster updates"</p>
+                                    <p class="text-xs text-purple-200 mt-2">→ Anticipates needs based on historical patterns</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -279,7 +480,67 @@
         </div>
     </main>
 
-    <script src="../styles/shared-navigation.js"></script>
+<script>
+    // Initialize Mermaid
+    mermaid.initialize({ 
+        startOnLoad: true,
+        theme: 'default',
+        themeVariables: {
+            primaryColor: '#3b82f6',
+            primaryTextColor: '#1f2937',
+            primaryBorderColor: '#1e40af',
+            lineColor: '#6b7280',
+            secondaryColor: '#e5e7eb',
+            tertiaryColor: '#f3f4f6'
+        }
+    });
+    
+    // Sidebar toggle functionality
+    function toggleSidebar() {
+        const sidebar = document.getElementById('sidebar');
+        const mainContent = document.getElementById('mainContent');
+        
+        sidebar.classList.toggle('sidebar-open');
+        mainContent.classList.toggle('main-content-shifted');
+    }
+
+    // Close sidebar when clicking outside on mobile
+    document.addEventListener('click', function(event) {
+        const sidebar = document.getElementById('sidebar');
+        const sidebarToggle = document.querySelector('.sidebar-toggle');
+        
+        if (window.innerWidth <= 768 && 
+            !sidebar.contains(event.target) && 
+            !sidebarToggle.contains(event.target) && 
+            sidebar.classList.contains('sidebar-open')) {
+            toggleSidebar();
+        }
+    });
+
+    // Handle window resize
+    window.addEventListener('resize', function() {
+        const sidebar = document.getElementById('sidebar');
+        const mainContent = document.getElementById('mainContent');
+        
+        if (window.innerWidth > 768) {
+            sidebar.classList.remove('sidebar-open');
+            mainContent.classList.remove('main-content-shifted');
+        }
+    });
+
+    // Set active navigation item
+    document.addEventListener('DOMContentLoaded', function() {
+        const currentPage = window.location.pathname.split('/').pop();
+        const navItems = document.querySelectorAll('.nav-item');
+        
+        navItems.forEach(item => {
+            const href = item.getAttribute('href');
+            if (href === currentPage) {
+                item.classList.add('nav-item-active');
+            }
+        });
+    });
+</script>
 
 </body>
 </html>

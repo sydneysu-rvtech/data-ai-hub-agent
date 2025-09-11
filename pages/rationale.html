@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data-AI-Hub Agent - Rationale</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/shared-styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="text-gray-200">
+
+<script src="../styles/shared-navigation.js"></script>
+
+<!-- Sidebar Toggle Button -->
+<button class="sidebar-toggle" onclick="toggleSidebar()">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+    </svg>
+</button>
+
+<!-- Sidebar Navigation -->
+<nav class="sidebar" id="sidebar">
+    <div class="p-6 border-b border-slate-700">
+        <h2 class="text-xl font-bold text-white">Data-AI-Hub Agent</h2>
+        <p class="text-sm text-slate-400 mt-1">Intelligent Developer Support</p>
+    </div>
+    
+    <div class="py-4">
+        <a href="index.html" class="nav-item">
+            <div class="flex items-center">
+                <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                </svg>
+                Home
+            </div>
+        </a>
+        
+        <a href="rationale.html" class="nav-item active">
+            <div class="flex items-center">
+                <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                </svg>
+                Rationale
+            </div>
+        </a>
+        
+        <a href="architecture.html" class="nav-item">
+            <div class="flex items-center">
+                <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                </svg>
+                Agent Architecture
+            </div>
+        </a>
+        
+        <a href="data-pipeline.html" class="nav-item nav-subitem">
+            <div class="flex items-center">
+                <svg class="w-4 h-4 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                </svg>
+                Data Pipeline Architecture
+            </div>
+        </a>
+        
+        <a href="memory-architecture.html" class="nav-item nav-subitem">
+            <div class="flex items-center">
+                <svg class="w-4 h-4 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                </svg>
+                Memory Architecture
+            </div>
+        </a>
+        
+        <a href="agentic-rag.html" class="nav-item nav-subitem">
+            <div class="flex items-center">
+                <svg class="w-4 h-4 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                </svg>
+                Agentic RAG Workflow
+            </div>
+        </a>
+        
+        <a href="testing-strategy.html" class="nav-item nav-subitem">
+            <div class="flex items-center">
+                <svg class="w-4 h-4 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                Testing Strategy
+            </div>
+        </a>
+        
+        <a href="dev-workflow.html" class="nav-item">
+            <div class="flex items-center">
+                <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+        </svg>
+        Dev Workflow
+        </div>
+    </a>
+    
+    <a href="demo.html" class="nav-item">
+        <div class="flex items-center">
+            <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h8m-5-10V3a1 1 0 011-1h4a1 1 0 011 1v1M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+        </svg>
+        Demo
+    </div>
+</a>
+
+<a href="challenges.html" class="nav-item">
+    <div class="flex items-center">
+        <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+        </svg>
+        Challenges
+    </div>
+</a>
+
+<a href="future-work.html" class="nav-item">
+    <div class="flex items-center">
+        <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+        </svg>
+        Future Work
+    </div>
+</a>
+</div>
+</nav>
+
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+        <div class="max-w-6xl mx-auto p-4 sm:p-8">
+            <!-- Header -->
+            <header class="text-center mb-16">
+                <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mb-6">Project Rationale</h1>
+                <p class="mt-4 text-lg md:text-xl text-blue-300 max-w-3xl mx-auto">Understanding the business case and technical foundation behind the Data-AI-Hub Agent.</p>
+            </header>
+
+            <!-- Platform Coverage & Engagement -->
+            <section class="mb-16 card">
+                <h2 class="section-title text-3xl font-bold mb-8 text-center w-full">Support Coverage & Engagement</h2>
+                
+                <!-- Bar Chart - Full Width -->
+                <div class="bg-slate-700 p-6 rounded-lg mb-8">
+                    <h3 class="text-2xl font-semibold text-blue-400 mb-6 text-center">Slack Support Volume (6 months)</h3>
+                    <div class="bg-slate-700 p-6 rounded-lg border border-slate-500" style="height: 500px;">
+                        <canvas id="channelVolumeChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Slack Metrics - Full Width -->
+                <div class="bg-slate-700 p-6 rounded-lg">
+                    <h3 class="text-2xl font-semibold text-blue-400 mb-6 text-center">Slack Engagement Metrics (6 months)</h3>
+                    <div class="grid md:grid-cols-4 gap-6">
+                        <div class="text-center bg-slate-600 p-6 rounded-lg">
+                            <p class="text-4xl font-bold text-white">18,413</p>
+                            <p class="text-sm text-gray-400 mt-2">Messages Analyzed</p>
+                        </div>
+                        <div class="text-center bg-slate-600 p-6 rounded-lg">
+                            <p class="text-4xl font-bold text-white">2,572</p>
+                            <p class="text-sm text-gray-400 mt-2">Threads Engaged</p>
+                        </div>
+                        <div class="text-center bg-slate-600 p-6 rounded-lg">
+                            <p class="text-4xl font-bold text-white">113</p>
+                            <p class="text-sm text-gray-400 mt-2">Average Msgs Per Day</p>
+                        </div>
+                        <div class="text-center bg-slate-600 p-6 rounded-lg">
+                            <p class="text-4xl font-bold text-white">17.1</p>
+                            <p class="text-sm text-gray-400 mt-2">Average Threads per Day</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Problem & Solution -->
+            <section class="mb-16 grid md:grid-cols-2 gap-8">
+                <div class="card">
+                    <h2 class="text-2xl font-bold text-red-400 mb-4">The Problem: High Cost of Support</h2>
+                    <p class="text-gray-400 mb-6">Senior engineers spend too much time manually answering repetitive technical questions, costing the company significant productivity loss.</p>
+                    <div class="flip-card">
+                        <div class="flip-hint">Hover to see details</div>
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front bg-red-900/50">
+                                <p class="text-5xl font-extrabold text-white">$130,000</p>
+                                <p class="text-lg text-red-300 mt-1">Projected annual cost in senior engineer time<br>for the Data-AI-Hub team</p>
+                            </div>
+                            <div class="flip-card-back bg-red-800/70">
+                                <div class="text-center text-white">
+                                    <p class="text-lg font-semibold mb-3">Calculation:</p>
+                                    <p class="text-sm mb-2">• Slack Support: 4 senior engineers × 15% time = 0.6 FTE</p>
+                                    <p class="text-sm mb-2">• Office Hours: 4 × 30min/week = 0.05 FTE</p>
+                                    <p class="text-sm mb-2">• Total: 0.65 FTE</p>
+                                    <p class="text-sm font-bold">0.65 × avg $200k salary = $130k</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 class="text-2xl font-bold text-green-400 mb-4">The Solution: An AI-Powered Slack Bot</h2>
+                    <p class="text-gray-400 mb-6">A Slack bot which provides instant, intelligent answers to developer questions, directly in their workflow. It retrieves relevant knowledge and generates accurate responses.</p>
+                    <div class="bg-green-900/50 p-6 rounded-lg text-center" style="height: 200px; display: flex; flex-direction: column; justify-content: center;">
+                         <div class="flex justify-center items-center gap-6 mb-4">
+                            <div class="bg-white rounded-full p-3 shadow-lg">
+                                <img src="../media/slack-logo.png" alt="Slack Logo" class="h-10 w-10 object-contain">
+                            </div>
+                            <div class="bg-white rounded-full p-3 shadow-lg">
+                                <img src="../media/intelligence-clipart.png" alt="AI Intelligence" class="h-10 w-10 object-contain">
+                            </div>
+                            <div class="bg-white rounded-full p-3 shadow-lg">
+                                <img src="../media/chat-thread-icon.png" alt="Chat Thread" class="h-10 w-10 object-contain">
+                            </div>
+                         </div>
+                        <p class="text-lg font-semibold text-white">Support given 24/7 in dedicated channels & DMs</p>
+                    </div>
+                </div>
+            </section>
+            
+             <!-- Developer Value -->
+             <section class="mb-16 card">
+                <h2 class="section-title text-3xl font-bold mb-8 text-center w-full">Developer Value</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-slate-700 p-8 rounded-lg">
+                        <div class="icon-bg mb-4 mx-auto w-fit">
+                            <svg class="w-8 h-8 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-blue-400 mb-4 text-center">Improved Knowledge Accessibility</h3>
+                        <p class="text-gray-300 text-center">Dramatically improves knowledge accessibility and discoverability across the entire platform ecosystem.</p>
+                    </div>
+                    
+                    <div class="bg-slate-700 p-8 rounded-lg">
+                        <div class="icon-bg mb-4 mx-auto w-fit">
+                            <svg class="w-8 h-8 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-blue-400 mb-4 text-center">Accelerated Onboarding</h3>
+                        <p class="text-gray-300 text-center">Accelerates onboarding and problem resolution for <span class="text-blue-300 font-semibold">10K+ Databricks users</span> with a lean team of <span class="text-blue-300 font-semibold">5 platform engineers + &lt; 25 data domain stewards</span>.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Business Impact -->
+            <section class="card">
+                <h2 class="section-title text-3xl font-bold mb-8 text-center w-full">Business Impact</h2>
+                <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <div class="flip-card">
+                        <div class="flip-hint">Hover to see details</div>
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front highlight-card">
+                                <p class="text-6xl font-extrabold text-white">$78,000</p>
+                                <p class="text-xl font-semibold text-blue-100 mt-2">Projected Annual Savings<br>for the Data-AI-Hub team</p>
+                            </div>
+                            <div class="flip-card-back" style="background: linear-gradient(145deg, #1e40af, #3730a3);">
+                                <div class="text-center text-white">
+                                    <p class="text-lg font-semibold mb-3">Calculation:</p>
+                                    <p class="text-sm mb-2">• Annual cost: $130,000</p>
+                                    <p class="text-sm mb-2">• Target Automation rate: 60%</p>
+                                    <p class="text-sm font-bold">$130k × 60% = $78k saved</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flip-card">
+                        <div class="flip-hint">Hover to see details</div>
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front bg-slate-700">
+                                <p class="text-6xl font-bold text-white">60%</p>
+                                <p class="text-xl text-gray-400 mt-2">Target Automation Rate</p>
+                            </div>
+                            <div class="flip-card-back bg-slate-600">
+                                <div class="text-center text-white">
+                                    <p class="text-lg font-semibold mb-3">Why 60%?</p>
+                                    <p class="text-sm mb-2">• Complex questions need humans</p>
+                                    <p class="text-sm mb-2">• Repetitive/Trivial Q&A = automatable</p>
+                                    <p class="text-sm font-bold">Conservative estimate based on thread analysis</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        // Create the bar chart for channel volume
+        document.addEventListener('DOMContentLoaded', function() {
+            const ctx = document.getElementById('channelVolumeChart').getContext('2d');
+            
+            // Sample data - you can replace with actual data
+            const channelData = {
+                labels: [
+                    'databricks-support',
+                    'ask-ota-data',
+                    'ask-manufacturing-data',
+                    'ask-product-data',
+                    'ask-supplychain-data',
+                    'ask-enterprise-data',
+                    'ask-fleet-data',
+                    'ask-commercial-data',
+                    'ask-shared-services-data'
+                ],
+                datasets: [{
+                    label: 'Messages (6 months)',
+                    data: [4250, 2890, 2340, 1980, 1750, 1650, 1520, 1350, 683], // Sample data totaling ~18,413
+                    backgroundColor: [
+                        '#1e40af', // dark blue
+                        '#0f766e', // dark teal
+                        '#b45309', // dark amber
+                        '#991b1b', // dark red
+                        '#6b21a8', // dark purple
+                        '#0c4a6e', // dark sky
+                        '#365314', // dark lime
+                        '#c2410c', // dark orange
+                        '#be185d'  // dark pink
+                    ],
+                    borderColor: '#374151',
+                    borderWidth: 1,
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            };
+
+            const config = {
+                type: 'bar',
+                data: channelData,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        title: {
+                            display: false
+                        },
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: '#4b5563',
+                                drawBorder: false
+                            },
+                            ticks: {
+                                color: '#d1d5db',
+                                font: {
+                                    size: 12,
+                                    family: 'Inter, sans-serif'
+                                }
+                            },
+                            title: {
+                                display: true,
+                                text: 'Number of Messages',
+                                color: '#e5e7eb',
+                                font: {
+                                    size: 13,
+                                    weight: '600',
+                                    family: 'Inter, sans-serif'
+                                }
+                            }
+                        },
+                        x: {
+                            grid: {
+                                display: false
+                            },
+                            ticks: {
+                                color: '#d1d5db',
+                                font: {
+                                    size: 11,
+                                    family: 'Inter, sans-serif'
+                                },
+                                maxRotation: 45,
+                                minRotation: 45
+                            },
+                            title: {
+                                display: true,
+                                text: 'Support Channels',
+                                color: '#e5e7eb',
+                                font: {
+                                    size: 13,
+                                    weight: '600',
+                                    family: 'Inter, sans-serif'
+                                }
+                            }
+                        }
+                    },
+                    elements: {
+                        bar: {
+                            borderRadius: 4
+                        }
+                    }
+                }
+            };
+
+            new Chart(ctx, config);
+        });
+    </script>
+
+</body>
+</html> 

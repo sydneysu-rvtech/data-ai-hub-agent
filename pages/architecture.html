@@ -9,6 +9,65 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../styles/shared-styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <style>
+        .mermaid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .mermaid svg {
+            max-width: 100%;
+            height: auto;
+            max-height: 450px !important;
+        }
+        
+        /* Architecture Card Specific Styles - Override hover behavior */
+        .architecture-card {
+            height: 600px;
+            cursor: pointer;
+        }
+        
+        .architecture-card .flip-card-inner {
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        
+        /* IMPORTANT: Override any hover-based flipping */
+        .architecture-card:hover .flip-card-inner {
+            transform: none !important;
+        }
+        
+        .architecture-card .flip-card-inner.flipped {
+            transform: rotateY(180deg) !important;
+        }
+        
+        .architecture-card .flip-card-front,
+        .architecture-card .flip-card-back {
+            height: 100%;
+            backface-visibility: hidden;
+            position: absolute;
+            width: 100%;
+            border-radius: 0.5rem;
+        }
+        
+        .architecture-card .flip-card-back {
+            transform: rotateY(180deg);
+        }
+        
+        .architecture-card .flip-hint {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            background: rgba(59, 130, 246, 0.9);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            z-index: 10;
+        }
+    </style>
 </head>
 <body class="text-gray-200">
 
@@ -33,6 +92,15 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
                 </svg>
                 Home
+            </div>
+        </a>
+        
+        <a href="rationale.html" class="nav-item">
+            <div class="flex items-center">
+                <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                </svg>
+                Rationale
             </div>
         </a>
         
@@ -90,11 +158,11 @@
             Dev Workflow
             </div>
         </a>
-    
-    <a href="demo.html" class="nav-item">
-        <div class="flex items-center">
-            <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h8m-5-10V3a1 1 0 011-1h4a1 1 0 011 1v1M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+        
+        <a href="demo.html" class="nav-item">
+            <div class="flex items-center">
+                <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h8m-5-10V3a1 1 0 011-1h4a1 1 0 011 1v1M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
             </svg>
             Demo
         </div>
@@ -118,14 +186,14 @@
         </div>
     </a>
 </div>
-</nav> 
+</nav>
 
     <!-- Main Content -->
     <main class="main-content" id="mainContent">
         <div class="max-w-6xl mx-auto p-4 sm:p-8">
             <header class="text-center mb-16">
                 <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white">Agent Architecture</h1>
-                <p class="mt-4 text-lg md:text-xl text-blue-300 max-w-3xl mx-auto">Implementation scope and system workflow overview</p>
+                <p class="mt-4 text-lg md:text-xl text-blue-300 max-w-3xl mx-auto">Implementation scope and system architecture overview</p>
             </header>
 
             <!-- Implementation Scope -->
@@ -143,19 +211,15 @@
                         <div class="space-y-3">
                             <div class="flex items-center space-x-3">
                                 <div class="w-2 h-2 bg-green-400 rounded-full"></div>
-                                <p class="text-gray-300">Databricks Vector Search</p>
+                                <p class="text-gray-300">Scheduled Data Pipelines</p>
                             </div>
                             <div class="flex items-center space-x-3">
                                 <div class="w-2 h-2 bg-green-400 rounded-full"></div>
-                                <p class="text-gray-300">Pre-built LLM Endpoints</p>
+                                <p class="text-gray-300">Hidden Infrastructure</p>
                             </div>
                             <div class="flex items-center space-x-3">
                                 <div class="w-2 h-2 bg-green-400 rounded-full"></div>
-                                <p class="text-gray-300">Managed Infrastructure</p>
-                            </div>
-                            <div class="flex items-center space-x-3">
-                                <div class="w-2 h-2 bg-green-400 rounded-full"></div>
-                                <p class="text-gray-300">Rapid Deployment</p>
+                                <p class="text-gray-300">Fast Deployment</p>
                             </div>
                         </div>
                     </div>
@@ -171,7 +235,7 @@
                         <div class="space-y-3">
                             <div class="flex items-center space-x-3">
                                 <div class="w-2 h-2 bg-yellow-400 rounded-full"></div>
-                                <p class="text-gray-300">Custom LangGraph Workflows</p>
+                                <p class="text-gray-300">Scheduled Data Pipelines</p>
                             </div>
                             <div class="flex items-center space-x-3">
                                 <div class="w-2 h-2 bg-yellow-400 rounded-full"></div>
@@ -179,205 +243,425 @@
                             </div>
                             <div class="flex items-center space-x-3">
                                 <div class="w-2 h-2 bg-yellow-400 rounded-full"></div>
-                                <p class="text-gray-300">Full Observability Control</p>
+                                <p class="text-gray-300">Custom LangGraph Workflows</p>
                             </div>
                             <div class="flex items-center space-x-3">
                                 <div class="w-2 h-2 bg-yellow-400 rounded-full"></div>
                                 <p class="text-gray-300">Custom Model Fine-tuning</p>
                             </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="w-2 h-2 bg-yellow-400 rounded-full"></div>
+                                <p class="text-gray-300">Full Observability Control</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- How It Works -->
+            <!-- Architecture Diagrams -->
+            <section class="mb-16">
+                <h2 class="section-title text-3xl font-bold mb-12 text-center w-full">System Architecture Diagrams</h2>
+
+                <!-- v1.0 Architecture Section -->
             <section class="mb-16 card">
-                <h2 class="section-title text-3xl font-bold mb-8 text-center w-full">How It Works: End-to-End RAG Pipeline for Developer Support</h2>  
-                <div class="flex flex-col items-center gap-6">
-                    <!-- Step 1: Data Sources -->
-                    <div class="w-full">
-                        <h3 class="text-center text-xl font-semibold text-blue-400 mb-4">1. Knowledge Ingestion via Scheduled Databricks Data Pipeline Jobs</h3>
-                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-center">
-                            <div class="bg-slate-700 p-4 rounded-lg"><p class="font-bold">GitLab</p><p class="text-xs text-gray-400 mt-1">Code docs & MR summaries</p></div>
-                            <div class="bg-slate-700 p-4 rounded-lg"><p class="font-bold">Confluence</p><p class="text-xs text-gray-400 mt-1">Wikis & How-To's</p></div>
-                            <div class="bg-slate-700 p-4 rounded-lg"><p class="font-bold">Slack</p><p class="text-xs text-gray-400 mt-1">Validated human solutions</p></div>
-                            <div class="bg-slate-700 p-4 rounded-lg"><p class="font-bold">Databricks</p><p class="text-xs text-gray-400 mt-1">Official docs & KB articles</p></div>
+                    <h3 class="section-title text-2xl font-bold mb-8 text-center text-blue-400">Data-AI-Hub Agent v1.0</h3>
+                    <div class="flip-card architecture-card">
+                        <div class="flip-card-inner" onclick="this.classList.toggle('flipped')">
+                            <!-- Front: Beautiful Custom Diagram -->
+                            <div class="flip-card-front bg-gradient-to-br from-slate-700 to-slate-800 border border-slate-600">
+                                <div class="flip-hint">Click to see Mermaid JS</div>
+                                <div class="p-4 h-full flex flex-col justify-center">
+                                    <svg viewBox="0 0 1000 600" class="w-full h-full">
+                                        <!-- Background -->
+                                        <defs>
+                                            <linearGradient id="bgGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                <stop offset="0%" style="stop-color:#1e40af;stop-opacity:0.1" />
+                                                <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:0.1" />
+                                            </linearGradient>
+                                            <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+                                                <feDropShadow dx="2" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.3"/>
+                                            </filter>
+                                        </defs>
+                                        <rect width="1000" height="600" fill="url(#bgGradient1)" rx="10"/>
+                                        
+                                        <!-- Data Sources Group Box -->
+                                        <g transform="translate(60, 90)">
+                                            <rect x="0" y="0" width="220" height="480" rx="12" fill="none" stroke="#94a3b8" stroke-width="2" stroke-dasharray="8,8"/>
+                                            <text x="110" y="30" text-anchor="middle" fill="#94a3b8" font-size="16" font-weight="bold">Data Sources</text>
+                                        </g>
+                                        
+                                        <!-- Data Sources -->
+                                        <g transform="translate(100, 150)">
+                                            <rect x="0" y="0" width="140" height="70" rx="10" fill="#f59e0b" filter="url(#shadow)"/>
+                                            <text x="70" y="40" text-anchor="middle" fill="white" font-size="16" font-weight="bold">GitLab</text>
+                                        </g>
+                                        <g transform="translate(100, 250)">
+                                            <rect x="0" y="0" width="140" height="70" rx="10" fill="#3b82f6" filter="url(#shadow)"/>
+                                            <text x="70" y="40" text-anchor="middle" fill="white" font-size="16" font-weight="bold">Confluence</text>
+                                        </g>
+                                        <g transform="translate(100, 350)">
+                                            <rect x="0" y="0" width="140" height="70" rx="10" fill="#ef4444" filter="url(#shadow)"/>
+                                            <text x="70" y="40" text-anchor="middle" fill="white" font-size="16" font-weight="bold">Databricks</text>
+                                        </g>
+                                        <g transform="translate(100, 450)">
+                                            <rect x="0" y="0" width="140" height="70" rx="10" fill="#10b981" filter="url(#shadow)"/>
+                                            <text x="70" y="40" text-anchor="middle" fill="white" font-size="16" font-weight="bold">Slack</text>
+                                        </g>
+                                        
+                                        <!-- User Query -->
+                                        <g transform="translate(430, 100)">
+                                            <rect x="0" y="0" width="140" height="70" rx="10" fill="#8b5cf6" filter="url(#shadow)"/>
+                                            <text x="70" y="40" text-anchor="middle" fill="white" font-size="16" font-weight="bold">User Query</text>
+                                        </g>
+                                        
+                                        <!-- Agent Bricks (Black Box) -->
+                                        <g transform="translate(400, 250)">
+                                            <rect x="0" y="0" width="200" height="100" rx="15" fill="#000000" stroke="#3b82f6" stroke-width="3" filter="url(#shadow)"/>
+                                            <text x="100" y="45" text-anchor="middle" fill="white" font-size="18" font-weight="bold">Agent Bricks</text>
+                                            <text x="100" y="70" text-anchor="middle" fill="#94a3b8" font-size="14">(Black Box)</text>
+                                        </g>
+                                        
+                                        <!-- Response -->
+                                        <g transform="translate(700, 250)">
+                                            <rect x="0" y="0" width="140" height="100" rx="10" fill="#16a34a" filter="url(#shadow)"/>
+                                            <text x="70" y="45" text-anchor="middle" fill="white" font-size="16" font-weight="bold">Response</text>
+                                            <text x="70" y="70" text-anchor="middle" fill="white" font-size="16" font-weight="bold">to User</text>
+                                        </g>
+                                        
+                                        <!-- Arrows -->
+                                        <defs>
+                                            <marker id="arrowhead1" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                                                <polygon points="0 0, 10 3.5, 0 7" fill="#60a5fa" />
+                                            </marker>
+                                        </defs>
+                                        
+                                        <!-- Single arrow from Data Sources to Agent Bricks -->
+                                        <path d="M 280 300 L 320 300 L 320 300 L 400 300" stroke="#60a5fa" stroke-width="3" fill="none" marker-end="url(#arrowhead1)"/>
+                                        
+                                        <!-- User query arrow -->
+                                        <path d="M 500 170 L 500 250" stroke="#60a5fa" stroke-width="3" fill="none" marker-end="url(#arrowhead1)"/>
+                                        
+                                        <!-- Response arrow -->
+                                        <path d="M 600 300 L 700 300" stroke="#60a5fa" stroke-width="3" fill="none" marker-end="url(#arrowhead1)"/>
+                                        
+                                        <!-- Latency note -->
+                                        <g transform="translate(400, 400)">
+                                            <rect x="0" y="0" width="200" height="40" rx="20" fill="#fbbf24"/>
+                                            <text x="100" y="26" text-anchor="middle" fill="#000" font-size="14" font-weight="bold">⏱️ Latency: 1-3 minutes</text>
+                                        </g>
+                                    </svg>
                         </div>
                     </div>
 
-                    <svg class="w-10 h-10 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                            <!-- Back: Detailed Mermaid Diagram -->
+                            <div class="flip-card-back bg-white">
+                                <div class="flip-hint">Click to see SVG</div>
+                                <div class="mermaid p-2 h-full w-full flex justify-center items-center text-sm">
+                                    graph TB
+                                        subgraph DS["Data Sources"]
+                                            A[GitLab]
+                                            B[Confluence]
+                                            C[Databricks]
+                                            D[Slack]
+                                        end
 
-                    <!-- Step 2: User Question -->
-                    <div class="w-full">
-                        <h3 class="text-center text-xl font-semibold text-blue-400 mb-4">2. User Asks a Question</h3>
-                        <div class="bg-slate-700 p-6 rounded-lg text-center max-w-2xl mx-auto">
-                            <div class="icon-bg mb-2"><svg class="w-8 h-8 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg></div>
-                            <p class="font-bold text-lg">Developer Tags @Data-AI-Hub Bot</p>
-                            <p class="text-sm text-gray-400 mt-1">The posted question is sent to the server and triggers the RAG workflow.</p>
+                                        E[User Query]
+                                        F["Agent Bricks<br/>(black box)"]
+                                        
+                                        G[Response to User]
+
+                                        A --> F
+                                        B --> F
+                                        C --> F
+                                        D --> F
+                                        E --> F
+                                        F --> G
+
+                                        G ~~~ H
+                                        H["⏱️ Latency: 1-3 minutes"]
+
+                                        style A fill:#f59e0b
+                                        style B fill:#3b82f6
+                                        style C fill:#ef4444
+                                        style D fill:#10b981
+                                        style E fill:#8b5cf6
+                                        style F fill:#000000,color:#FFFFFF
+                                        style G fill:#16a34a
+                                        style H fill:#fbbf24,color:#000
                         </div>
-                    </div>
-
-                    <svg class="w-10 h-10 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
-
-                    <!-- Step 3: Vector Search -->
-                    <div class="w-full">
-                        <h3 class="text-center text-xl font-semibold text-blue-400 mb-4">3. Query Knowledge Base Using Vector Search</h3>
-                        <div class="bg-slate-700 p-6 rounded-lg text-center max-w-2xl mx-auto">
-                            <div class="icon-bg mb-2"><svg class="w-8 h-8 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></div>
-                            <p class="font-bold text-lg">Semantic Search & Retrieval</p>
-                            <p class="text-sm text-gray-400 mt-1">Converts question to embeddings and finds most relevant knowledge chunks.</p>
-                        </div>
-                    </div>
-
-                    <svg class="w-10 h-10 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
-
-                    <!-- Step 4: RAG Processing -->
-                    <div class="w-full">
-                        <h3 class="text-center text-xl font-semibold text-blue-400 mb-4">4. RAG Processing & AI Generation</h3>
-                        <div class="bg-slate-700 p-6 rounded-lg text-center max-w-2xl mx-auto">
-                            <div class="icon-bg mb-2"><svg class="w-8 h-8 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg></div>
-                            <p class="font-bold text-lg">Prompt + Retrieved Knowledge → AI Engine</p>
-                            <p class="text-sm text-gray-400 mt-1">Combines user question with relevant context to generate accurate, informed responses.</p>
-                        </div>
-                    </div>
-
-                    <svg class="w-10 h-10 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
-
-                    <!-- Step 5: Slack Response -->
-                    <div class="w-full">
-                        <h3 class="text-center text-xl font-semibold text-blue-400 mb-4">5. Slack Response Delivery</h3>
-                        <div class="bg-slate-700 p-6 rounded-lg text-center max-w-2xl mx-auto">
-                            <div class="icon-bg mb-2"><svg class="w-8 h-8 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg></div>
-                            <p class="font-bold text-lg">Real-Time 24/7 Integration</p>
-                            <p class="text-sm text-gray-400 mt-1">Delivers instant, contextual answers via FastAPI & WebSocket connection.</p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- System Workflow Diagram -->
-            <section class="card">
-                <h2 class="section-title text-3xl font-bold mb-8 text-center w-full">Overall System Workflow</h2>
-                <div class="bg-slate-700 p-8 rounded-lg">
-                    <!-- System Workflow Diagram -->
-                    <div class="mb-8">
-                        <svg viewBox="0 0 1200 300" class="w-full h-80 mb-8">
+                <!-- v2.0 Architecture Section -->
+                <section class="mb-16 card">
+                    <h3 class="section-title text-2xl font-bold mb-8 text-center text-purple-400">Data-AI-Hub Agent v2.0</h3>
+                    <div class="flip-card architecture-card">
+                        <div class="flip-card-inner" onclick="this.classList.toggle('flipped')">
+                            <!-- Front: Beautiful Custom Diagram -->
+                            <div class="flip-card-front bg-gradient-to-br from-slate-700 to-slate-800 border border-slate-600">
+                                <div class="flip-hint">Click to see Mermaid JS</div>
+                                <div class="p-4 h-full flex flex-col justify-center">
+                                    <svg viewBox="0 0 1400 800" class="w-full h-full">
                             <!-- Background -->
                             <defs>
-                                <linearGradient id="flowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                                    <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.1" />
-                                    <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:0.1" />
+                                            <linearGradient id="bgGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                <stop offset="0%" style="stop-color:#7c3aed;stop-opacity:0.1" />
+                                                <stop offset="100%" style="stop-color:#a855f7;stop-opacity:0.1" />
                                 </linearGradient>
-                                <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
-                                    <polygon points="0 0, 10 3.5, 0 7" fill="#60a5fa" />
-                                </marker>
                             </defs>
-                            <rect width="1200" height="300" fill="url(#flowGradient)" rx="10"/>
-                            
-                            <!-- Step 1: User Mentions Bot -->
-                            <g transform="translate(50, 50)">
-                                <circle cx="60" cy="60" r="50" fill="#1e40af" stroke="#3b82f6" stroke-width="3"/>
-                                <text x="60" y="45" text-anchor="middle" fill="#dbeafe" font-size="24">🔔</text>
-                                <text x="60" y="75" text-anchor="middle" fill="#dbeafe" font-size="12" font-weight="bold">User Mentions</text>
-                                <text x="60" y="90" text-anchor="middle" fill="#dbeafe" font-size="12" font-weight="bold">Bot</text>
-                            </g>
-                            
-                            <!-- Arrow 1 -->
-                            <line x1="160" y1="110" x2="210" y2="110" stroke="#60a5fa" stroke-width="3" marker-end="url(#arrowhead)"/>
-                            
-                            <!-- Step 2: Retrieve Thread -->
-                            <g transform="translate(220, 50)">
-                                <circle cx="60" cy="60" r="50" fill="#166534" stroke="#16a34a" stroke-width="3"/>
-                                <text x="60" y="45" text-anchor="middle" fill="#dcfce7" font-size="24">📜</text>
-                                <text x="60" y="75" text-anchor="middle" fill="#dcfce7" font-size="12" font-weight="bold">Retrieve Thread</text>
-                                <text x="60" y="90" text-anchor="middle" fill="#dcfce7" font-size="12" font-weight="bold">History</text>
-                            </g>
-                            
-                            <!-- Arrow 2 -->
-                            <line x1="330" y1="110" x2="380" y2="110" stroke="#60a5fa" stroke-width="3" marker-end="url(#arrowhead)"/>
-                            
-                            <!-- Step 3: Generate Query -->
-                            <g transform="translate(390, 50)">
-                                <circle cx="60" cy="60" r="50" fill="#581c87" stroke="#8b5cf6" stroke-width="3"/>
-                                <text x="60" y="45" text-anchor="middle" fill="#f3e8ff" font-size="24">🎯</text>
-                                <text x="60" y="75" text-anchor="middle" fill="#f3e8ff" font-size="12" font-weight="bold">Generate</text>
-                                <text x="60" y="90" text-anchor="middle" fill="#f3e8ff" font-size="12" font-weight="bold">Search Query</text>
-                            </g>
-                            
-                            <!-- Arrow 3 -->
-                            <line x1="500" y1="110" x2="550" y2="110" stroke="#60a5fa" stroke-width="3" marker-end="url(#arrowhead)"/>
-                            
-                            <!-- Step 4: Vector Search -->
-                            <g transform="translate(560, 50)">
-                                <circle cx="60" cy="60" r="50" fill="#9a3412" stroke="#f97316" stroke-width="3"/>
-                                <text x="60" y="45" text-anchor="middle" fill="#fed7aa" font-size="24">🔍</text>
-                                <text x="60" y="75" text-anchor="middle" fill="#fed7aa" font-size="12" font-weight="bold">Vector</text>
-                                <text x="60" y="90" text-anchor="middle" fill="#fed7aa" font-size="12" font-weight="bold">Search</text>
-                            </g>
-                            
-                            <!-- Arrow 4 -->
-                            <line x1="670" y1="110" x2="720" y2="110" stroke="#60a5fa" stroke-width="3" marker-end="url(#arrowhead)"/>
-                            
-                            <!-- Step 5: Format Response -->
-                            <g transform="translate(730, 50)">
-                                <circle cx="60" cy="60" r="50" fill="#155e75" stroke="#06b6d4" stroke-width="3"/>
-                                <text x="60" y="45" text-anchor="middle" fill="#cffafe" font-size="24">💬</text>
-                                <text x="60" y="75" text-anchor="middle" fill="#cffafe" font-size="12" font-weight="bold">Format</text>
-                                <text x="60" y="90" text-anchor="middle" fill="#cffafe" font-size="12" font-weight="bold">Response</text>
-                            </g>
-                            
-                            <!-- MLflow Observability Banner -->
-                            <g transform="translate(300, 200)">
-                                <rect x="0" y="0" width="400" height="40" fill="#1e293b" stroke="#3b82f6" stroke-width="2" rx="20"/>
-                                <text x="200" y="15" text-anchor="middle" fill="#60a5fa" font-size="14" font-weight="bold">MLflow Observability</text>
-                                <text x="200" y="30" text-anchor="middle" fill="#94a3b8" font-size="12">End-to-End Monitoring</text>
-                            </g>
-                            
-                            <!-- Monitoring Lines -->
-                            <line x1="110" y1="160" x2="110" y2="200" stroke="#3b82f6" stroke-width="2" stroke-dasharray="5,5" opacity="0.7"/>
-                            <line x1="280" y1="160" x2="280" y2="200" stroke="#3b82f6" stroke-width="2" stroke-dasharray="5,5" opacity="0.7"/>
-                            <line x1="450" y1="160" x2="450" y2="200" stroke="#3b82f6" stroke-width="2" stroke-dasharray="5,5" opacity="0.7"/>
-                            <line x1="620" y1="160" x2="620" y2="200" stroke="#3b82f6" stroke-width="2" stroke-dasharray="5,5" opacity="0.7"/>
-                            <line x1="790" y1="160" x2="790" y2="200" stroke="#3b82f6" stroke-width="2" stroke-dasharray="5,5" opacity="0.7"/>
+                                        <rect width="1400" height="800" fill="url(#bgGradient2)" rx="10"/>
+                                        
+                                        <!-- Data Sources Group Box -->
+                                        <g transform="translate(100, 150)">
+                                            <rect x="0" y="0" width="380" height="240" rx="12" fill="none" stroke="#94a3b8" stroke-width="2" stroke-dasharray="8,8"/>
+                                            <text x="190" y="25" text-anchor="middle" fill="#94a3b8" font-size="16" font-weight="bold">Data Sources</text>
+                                        </g>
+                                        
+                                        <!-- Data Sources -->
+                                        <g transform="translate(130, 200)">
+                                            <rect x="0" y="0" width="160" height="70" rx="10" fill="#f59e0b" filter="url(#shadow)"/>
+                                            <text x="80" y="40" text-anchor="middle" fill="white" font-size="16" font-weight="bold">GitLab</text>
+                                        </g>
+                                        <g transform="translate(310, 200)">
+                                            <rect x="0" y="0" width="160" height="70" rx="10" fill="#3b82f6" filter="url(#shadow)"/>
+                                            <text x="80" y="40" text-anchor="middle" fill="white" font-size="16" font-weight="bold">Confluence</text>
+                                        </g>
+                                        <g transform="translate(130, 300)">
+                                            <rect x="0" y="0" width="160" height="70" rx="10" fill="#ef4444" filter="url(#shadow)"/>
+                                            <text x="80" y="40" text-anchor="middle" fill="white" font-size="16" font-weight="bold">Databricks</text>
+                                        </g>
+                                        <g transform="translate(310, 300)">
+                                            <rect x="0" y="0" width="160" height="70" rx="10" fill="#10b981" filter="url(#shadow)"/>
+                                            <text x="80" y="40" text-anchor="middle" fill="white" font-size="16" font-weight="bold">Slack</text>
+                                        </g>
+                                        
+                                        <!-- Processing Flow Group Box -->
+                                        <g transform="translate(580, 20)">
+                                            <rect x="0" y="0" width="640" height="500" rx="12" fill="none" stroke="#94a3b8" stroke-width="2" stroke-dasharray="8,8"/>
+                                            <text x="320" y="30" text-anchor="middle" fill="#94a3b8" font-size="16" font-weight="bold">Query Processing & Response Flow</text>
+                                        </g>
+                                        
+                                        <!-- User Query (Top) -->
+                                        <g transform="translate(640, 80)">
+                                            <rect x="0" y="0" width="160" height="70" rx="10" fill="#16a34a" filter="url(#shadow)"/>
+                                            <text x="80" y="40" text-anchor="middle" fill="white" font-size="16" font-weight="bold">User Query</text>
+                                        </g>
+                                        
+                                        <!-- Lakebase Postgres Database -->
+                                        <g transform="translate(640, 180)">
+                                            <rect x="0" y="0" width="160" height="80" rx="10" fill="#8ABDF2" filter="url(#shadow)"/>
+                                            <text x="80" y="30" text-anchor="middle" fill="white" font-size="14" font-weight="bold">Lakebase</text>
+                                            <text x="80" y="48" text-anchor="middle" fill="white" font-size="14" font-weight="bold">Postgres</text>
+                                            <text x="80" y="66" text-anchor="middle" fill="white" font-size="14" font-weight="bold">Database</text>
+                                        </g>
+                                        
+                                        <!-- Claude-4 Query Enhancement -->
+                                        <g transform="translate(640, 300)">
+                                            <rect x="0" y="0" width="160" height="80" rx="10" fill="#E6B1FA" filter="url(#shadow)"/>
+                                            <text x="80" y="30" text-anchor="middle" fill="black" font-size="14" font-weight="bold">Claude-4-Sonnet</text>
+                                            <text x="80" y="48" text-anchor="middle" fill="black" font-size="14" font-weight="bold">Query</text>
+                                            <text x="80" y="66" text-anchor="middle" fill="black" font-size="14" font-weight="bold">Enhancement</text>
+                                        </g>
+                                        
+                                        <!-- Vector Index -->
+                                        <g transform="translate(640, 420)">
+                                            <rect x="0" y="0" width="160" height="70" rx="10" fill="#A64464" filter="url(#shadow)"/>
+                                            <text x="80" y="40" text-anchor="middle" fill="white" font-size="16" font-weight="bold">Vector Index</text>
+                                        </g>
+                                        
+                                        <!-- Claude-4 Response Formatting -->
+                                        <g transform="translate(950, 300)">
+                                            <rect x="0" y="0" width="160" height="80" rx="10" fill="#E6B1FA" filter="url(#shadow)"/>
+                                            <text x="80" y="30" text-anchor="middle" fill="black" font-size="14" font-weight="bold">Claude-4-Sonnet</text>
+                                            <text x="80" y="48" text-anchor="middle" fill="black" font-size="14" font-weight="bold">Response</text>
+                                            <text x="80" y="66" text-anchor="middle" fill="black" font-size="14" font-weight="bold">Formatting</text>
+                                        </g>
+                                        
+                                        <!-- User Response -->
+                                        <g transform="translate(950, 180)">
+                                            <rect x="0" y="0" width="160" height="70" rx="10" fill="#16a34a" filter="url(#shadow)"/>
+                                            <text x="80" y="40" text-anchor="middle" fill="white" font-size="16" font-weight="bold">User Response</text>
+                                        </g>
+                                        
+                                        <!-- MLflow Observability -->
+                                        <g transform="translate(580, 600)">
+                                            <rect x="0" y="0" width="320" height="80" rx="12" fill="#ff6b35" filter="url(#shadow)"/>
+                                            <text x="160" y="35" text-anchor="middle" fill="white" font-size="18" font-weight="bold">MLflow Observability</text>
+                                            <text x="160" y="58" text-anchor="middle" fill="white" font-size="16">End-to-End Monitoring</text>
+                                        </g>
+                                        
+                                        <!-- Latency indicator -->
+                                        <g transform="translate(580, 700)">
+                                            <rect x="0" y="0" width="320" height="45" rx="20" fill="#fbbf24"/>
+                                            <text x="160" y="30" text-anchor="middle" fill="#000" font-size="18" font-weight="bold">⏱️ Latency: &lt; 15 seconds</text>
+                                        </g>
+                
+                                        <!-- Arrows -->
+                                        <defs>
+                                            <marker id="arrowhead2" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                                                <polygon points="0 0, 10 3.5, 0 7" fill="#a855f7" />
+                                            </marker>
+                                            <marker id="monitoringArrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+                                                <polygon points="0 0, 8 3, 0 6" fill="#ff6b35" />
+                                            </marker>
+                                        </defs>
+                                        
+                                        <!-- Single arrow from Data Sources to Vector Index -->
+                                        <path d="M 490 270 L 550 270 L 550 455 L 640 455" stroke="#a855f7" stroke-width="3" fill="none" marker-end="url(#arrowhead2)"/>
+                                        
+                                        <!-- Main Flow -->
+                                        <path d="M 720 150 L 720 180" stroke="#a855f7" stroke-width="3" fill="none" marker-end="url(#arrowhead2)"/>
+                                        <path d="M 720 260 L 720 300" stroke="#a855f7" stroke-width="3" fill="none" marker-end="url(#arrowhead2)"/>
+                                        <path d="M 720 380 L 720 420" stroke="#a855f7" stroke-width="3" fill="none" marker-end="url(#arrowhead2)"/>
+                                        <path d="M 800 455 L 850 455 L 850 340 L 950 340" stroke="#a855f7" stroke-width="3" fill="none" marker-end="url(#arrowhead2)"/>
+                                        <path d="M 1030 300 L 1030 250" stroke="#a855f7" stroke-width="3" fill="none" marker-end="url(#arrowhead2)"/>
+                                        
+                                        <!-- Single MLflow Monitoring Connection from Processing Box -->
+                                        <path d="M 900 520 L 900 540 L 720 540 L 720 600" stroke="#ff6b35" stroke-width="3" fill="none" stroke-dasharray="8,8" marker-end="url(#monitoringArrow)"/>
                         </svg>
                     </div>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 text-center">
-                        <div class="bg-slate-600 p-4 rounded-lg">
-                            <div class="text-2xl mb-2">🔔</div>
-                            <p class="font-semibold text-blue-300">User Mentions Bot</p>
-                            <p class="text-xs text-gray-400 mt-1">Slack thread trigger</p>
+                            </div>
+                            
+                            <!-- Back: Detailed Mermaid Diagram -->
+                            <div class="flip-card-back bg-white">
+                                <div class="flip-hint">Click to see SVG</div>
+                                <div class="mermaid p-2 h-full w-full flex justify-center items-center text-sm">
+                                    graph TB
+                                        subgraph DS["Data Sources"]
+                                            A[GitLab]
+                                            B[Confluence]
+                                            C[Databricks]
+                                            D[Slack]
+                                        end
+                                        
+                                        E[User Query]
+                                        F[Lakebase Postgres Database]
+                                        G[Claude-4-Sonnet<br/>Query Enhancement]
+                                        I[Vector Index]
+                                        K[Claude-4-Sonnet<br/>Response Formatting]
+                                        L[User Response]
+                                        
+                                        %% MLflow Monitoring
+                                        M[MLflow Observability<br/>End-to-End Monitoring]
+                                        
+                                        A --> I
+                                        B --> I
+                                        C --> I
+                                        D --> I
+                                        
+                                        E --> F
+                                        F --> G
+                                        G --> I
+                                        I --> K
+                                        K --> L
+                                        
+                                        %% MLflow monitoring connections
+                                        F -.-> M
+                                        G -.-> M
+                                        I -.-> M
+                                        K -.-> M
+                                        
+                                        %% Latency indicator
+                                        L ~~~ N
+                                        N["⏱️ Latency: < 15 seconds"]
+                                        
+                                        style A fill:#f59e0b
+                                        style B fill:#3b82f6
+                                        style C fill:#ef4444
+                                        style D fill:#10b981
+                                        style E fill:#16a34a
+                                        style F fill:#8ABDF2
+                                        style G fill:#E6B1FA
+                                        style I fill:#A64464
+                                        style K fill:#E6B1FA
+                                        style L fill:#16a34a
+                                        style M fill:#ff6b35,color:#fff
+                                        style N fill:#fbbf24,color:#000
                         </div>
-                        <div class="bg-slate-600 p-4 rounded-lg">
-                            <div class="text-2xl mb-2">📜</div>
-                            <p class="font-semibold text-green-300">Retrieve Thread History</p>
-                            <p class="text-xs text-gray-400 mt-1">Full conversation context</p>
                         </div>
-                        <div class="bg-slate-600 p-4 rounded-lg">
-                            <div class="text-2xl mb-2">🎯</div>
-                            <p class="font-semibold text-purple-300">Generate Search Query</p>
-                            <p class="text-xs text-gray-400 mt-1">LLM-enhanced query</p>
-                        </div>
-                        <div class="bg-slate-600 p-4 rounded-lg">
-                            <div class="text-2xl mb-2">🔍</div>
-                            <p class="font-semibold text-orange-300">Vector Search</p>
-                            <p class="text-xs text-gray-400 mt-1">Retrieve relevant docs</p>
-                        </div>
-                        <div class="bg-slate-600 p-4 rounded-lg">
-                            <div class="text-2xl mb-2">💬</div>
-                            <p class="font-semibold text-cyan-300">Format Response</p>
-                            <p class="text-xs text-gray-400 mt-1">Send to Slack</p>
                         </div>
                     </div>
-                    <div class="mt-6 text-center">
-                        <p class="text-gray-300">All major steps monitored by <span class="text-blue-400 font-semibold">MLflow</span> for complete observability</p>
-                    </div>
-                </div>
+                </section>
             </section>
-        </div>
-    </main>
 
-    <script src="../styles/shared-navigation.js"></script>
+    <script>
+        // Initialize Mermaid
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default',
+            themeVariables: {
+                primaryColor: '#3b82f6',
+                primaryTextColor: '#1f2937',
+                primaryBorderColor: '#1e40af',
+                lineColor: '#6b7280',
+                secondaryColor: '#e5e7eb',
+                tertiaryColor: '#f3f4f6'
+            }
+        });
+        
+        // Sidebar toggle functionality
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const mainContent = document.getElementById('mainContent');
+            
+            sidebar.classList.toggle('collapsed');
+            mainContent.classList.toggle('expanded');
+        }
+
+        // Add keyboard support to reset cards
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                // Reset all flipped cards when pressing Escape
+                const flippedCards = document.querySelectorAll('.flip-card.flipped');
+                flippedCards.forEach(card => card.classList.remove('flipped'));
+            }
+        });
+
+        // Hover functionality for all screen sizes
+        document.addEventListener('DOMContentLoaded', function() {
+            const flipCards = document.querySelectorAll('.flip-card');
+            flipCards.forEach(card => {
+                let hoverTimeout;
+                
+                card.addEventListener('mouseenter', function() {
+                    hoverTimeout = setTimeout(() => {
+                        this.classList.add('flipped');
+                    }, 300); // Reduced delay for better responsiveness
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    clearTimeout(hoverTimeout);
+                    this.classList.remove('flipped');
+                });
+            });
+        });
+
+        // Set active navigation item based on current page
+        function setActiveNavigation() {
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            const navItems = document.querySelectorAll('.nav-item');
+            
+            // Remove active class from all items
+            navItems.forEach(item => item.classList.remove('active'));
+            
+            // Add active class to current page
+            const currentNavItem = document.querySelector(`[href="${currentPage}"]`) || 
+                                  document.querySelector(`[href="index.html"]`);
+            if (currentNavItem) {
+                currentNavItem.classList.add('active');
+                console.log('Active navigation set for:', currentPage);
+            }
+        }
+
+        // Run when DOM is loaded and also after a short delay to ensure everything is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            setActiveNavigation();
+            // Run again after a short delay to ensure navigation is fully loaded
+            setTimeout(setActiveNavigation, 100);
+        });
+    </script>
 
 </body>
 </html> 

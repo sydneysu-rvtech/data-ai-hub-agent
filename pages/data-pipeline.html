@@ -12,6 +12,8 @@
 </head>
 <body class="text-gray-200">
 
+<script src="../styles/shared-navigation.js"></script>
+
 <!-- Sidebar Toggle Button -->
 <button class="sidebar-toggle" onclick="toggleSidebar()">
     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -33,6 +35,15 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
                 </svg>
                 Home
+            </div>
+        </a>
+        
+        <a href="rationale.html" class="nav-item">
+            <div class="flex items-center">
+                <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                </svg>
+                Rationale
             </div>
         </a>
         
@@ -90,11 +101,11 @@
             Dev Workflow
             </div>
         </a>
-    
-    <a href="demo.html" class="nav-item">
-        <div class="flex items-center">
-            <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h8m-5-10V3a1 1 0 011-1h4a1 1 0 011 1v1M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+        
+        <a href="demo.html" class="nav-item">
+            <div class="flex items-center">
+                <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h8m-5-10V3a1 1 0 011-1h4a1 1 0 011 1v1M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
             </svg>
             Demo
         </div>
@@ -118,7 +129,7 @@
         </div>
     </a>
 </div>
-</nav> 
+</nav>
 
     <!-- Main Content -->
     <main class="main-content" id="mainContent">
@@ -128,225 +139,232 @@
                 <p class="mt-4 text-lg md:text-xl text-blue-300 max-w-3xl mx-auto">Bronze, Silver, Gold medallion pattern for knowledge ingestion</p>
             </header>
 
-            <!-- Data Pipelines -->
+            <!-- Bronze Data Pipeline -->
             <section class="mb-16 card">
-                <h2 class="section-title text-3xl font-bold mb-8 text-center w-full">Data Pipelines</h2>
-                
-                <!-- Pipeline Architecture -->
-                <div class="mb-12">
-                    <h3 class="text-2xl font-semibold text-blue-400 mb-6 text-center">Pipeline Architecture - Medallion Pattern</h3>
-                    <div class="bg-slate-700 p-8 rounded-lg">
-                        <!-- Medallion Pipeline Diagram -->
-                        <div class="mb-8">
-                            <svg viewBox="0 0 1000 300" class="w-full h-80 mb-8">
-                                <defs>
-                                    <linearGradient id="pipelineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                                        <stop offset="0%" style="stop-color:#fbbf24;stop-opacity:0.2" />
-                                        <stop offset="50%" style="stop-color:#6b7280;stop-opacity:0.2" />
-                                        <stop offset="100%" style="stop-color:#f59e0b;stop-opacity:0.2" />
-                                    </linearGradient>
-                                    <marker id="pipelineArrow" markerWidth="12" markerHeight="8" refX="11" refY="4" orient="auto">
-                                        <polygon points="0 0, 12 4, 0 8" fill="#60a5fa" />
-                                    </marker>
-                                </defs>
-                                <rect width="1000" height="300" fill="url(#pipelineGradient)" rx="10"/>
-                                
-                                <!-- Bronze Layer -->
-                                <g transform="translate(50, 50)">
-                                    <rect x="0" y="0" width="250" height="180" fill="#fbbf24" fill-opacity="0.1" stroke="#f59e0b" stroke-width="3" rx="15"/>
-                                    <text x="125" y="25" text-anchor="middle" fill="#f59e0b" font-size="18" font-weight="bold">🥉 Bronze - Ingestion</text>
-                                    <text x="125" y="45" text-anchor="middle" fill="#d97706" font-size="12">Raw Data Collection</text>
-                                    
-                                    <!-- Data Sources -->
-                                    <g transform="translate(20, 60)">
-                                        <rect x="0" y="0" width="50" height="25" fill="#92400e" stroke="#f59e0b" stroke-width="1" rx="5"/>
-                                        <text x="25" y="17" text-anchor="middle" fill="#fef3c7" font-size="10" font-weight="bold">GitLab</text>
-                                    </g>
-                                    <g transform="translate(80, 60)">
-                                        <rect x="0" y="0" width="60" height="25" fill="#92400e" stroke="#f59e0b" stroke-width="1" rx="5"/>
-                                        <text x="30" y="17" text-anchor="middle" fill="#fef3c7" font-size="10" font-weight="bold">Databricks</text>
-                                    </g>
-                                    <g transform="translate(150, 60)">
-                                        <rect x="0" y="0" width="60" height="25" fill="#92400e" stroke="#f59e0b" stroke-width="1" rx="5"/>
-                                        <text x="30" y="17" text-anchor="middle" fill="#fef3c7" font-size="10" font-weight="bold">Confluence</text>
-                                    </g>
-                                    <g transform="translate(75, 95)">
-                                        <rect x="0" y="0" width="50" height="25" fill="#92400e" stroke="#f59e0b" stroke-width="1" rx="5"/>
-                                        <text x="25" y="17" text-anchor="middle" fill="#fef3c7" font-size="10" font-weight="bold">Slack</text>
-                                    </g>
-                                    
-                                    <text x="125" y="145" text-anchor="middle" fill="#92400e" font-size="11" font-weight="bold">Scheduled Jobs</text>
-                                    <text x="125" y="160" text-anchor="middle" fill="#a16207" font-size="10">Automated Scraping</text>
-                                </g>
-                                
-                                <!-- Arrow 1 -->
-                                <line x1="300" y1="140" x2="350" y2="140" stroke="#60a5fa" stroke-width="4" marker-end="url(#pipelineArrow)"/>
-                                
-                                <!-- Silver Layer -->
-                                <g transform="translate(370, 50)">
-                                    <rect x="0" y="0" width="250" height="180" fill="#6b7280" fill-opacity="0.1" stroke="#6b7280" stroke-width="3" rx="15"/>
-                                    <text x="125" y="25" text-anchor="middle" fill="#6b7280" font-size="18" font-weight="bold">🥈 Silver - Processing</text>
-                                    <text x="125" y="45" text-anchor="middle" fill="#4b5563" font-size="12">Cleaning & Chunking</text>
-                                    
-                                    <!-- Processing Steps -->
-                                    <g transform="translate(20, 65)">
-                                        <rect x="0" y="0" width="70" height="20" fill="#4b5563" stroke="#6b7280" stroke-width="1" rx="5"/>
-                                        <text x="35" y="14" text-anchor="middle" fill="#f3f4f6" font-size="9" font-weight="bold">Semantic Chunking</text>
-                                    </g>
-                                    <g transform="translate(100, 65)">
-                                        <rect x="0" y="0" width="70" height="20" fill="#4b5563" stroke="#6b7280" stroke-width="1" rx="5"/>
-                                        <text x="35" y="14" text-anchor="middle" fill="#f3f4f6" font-size="9" font-weight="bold">OCR Processing</text>
-                                    </g>
-                                    <g transform="translate(180, 65)">
-                                        <rect x="0" y="0" width="50" height="20" fill="#4b5563" stroke="#6b7280" stroke-width="1" rx="5"/>
-                                        <text x="25" y="14" text-anchor="middle" fill="#f3f4f6" font-size="9" font-weight="bold">Code Blocks</text>
-                                    </g>
-                                    <g transform="translate(60, 95)">
-                                        <rect x="0" y="0" width="80" height="20" fill="#4b5563" stroke="#6b7280" stroke-width="1" rx="5"/>
-                                        <text x="40" y="14" text-anchor="middle" fill="#f3f4f6" font-size="9" font-weight="bold">File Hierarchy</text>
-                                    </g>
-                                    
-                                    <text x="125" y="135" text-anchor="middle" fill="#4b5563" font-size="11" font-weight="bold">Context-Aware Processing</text>
-                                    <text x="125" y="150" text-anchor="middle" fill="#6b7280" font-size="10">Structured Delta Table</text>
-                                </g>
-                                
-                                <!-- Arrow 2 -->
-                                <line x1="620" y1="140" x2="670" y2="140" stroke="#60a5fa" stroke-width="4" marker-end="url(#pipelineArrow)"/>
-                                
-                                <!-- Gold Layer -->
-                                <g transform="translate(690, 50)">
-                                    <rect x="0" y="0" width="250" height="180" fill="#f59e0b" fill-opacity="0.1" stroke="#f59e0b" stroke-width="3" rx="15"/>
-                                    <text x="125" y="25" text-anchor="middle" fill="#f59e0b" font-size="18" font-weight="bold">🥇 Gold - Embeddings</text>
-                                    <text x="125" y="45" text-anchor="middle" fill="#d97706" font-size="12">Vector Search Ready</text>
-                                    
-                                    <!-- Embedding Steps -->
-                                    <g transform="translate(30, 65)">
-                                        <rect x="0" y="0" width="60" height="20" fill="#92400e" stroke="#f59e0b" stroke-width="1" rx="5"/>
-                                        <text x="30" y="14" text-anchor="middle" fill="#fef3c7" font-size="9" font-weight="bold">Late Chunking</text>
-                                    </g>
-                                    <g transform="translate(100, 65)">
-                                        <rect x="0" y="0" width="80" height="20" fill="#92400e" stroke="#f59e0b" stroke-width="1" rx="5"/>
-                                        <text x="40" y="14" text-anchor="middle" fill="#fef3c7" font-size="9" font-weight="bold">gte-large-en-v1_5</text>
-                                    </g>
-                                    <g transform="translate(30, 95)">
-                                        <rect x="0" y="0" width="70" height="20" fill="#92400e" stroke="#f59e0b" stroke-width="1" rx="5"/>
-                                        <text x="35" y="14" text-anchor="middle" fill="#fef3c7" font-size="9" font-weight="bold">Vector Search</text>
-                                    </g>
-                                    <g transform="translate(110, 95)">
-                                        <rect x="0" y="0" width="70" height="20" fill="#92400e" stroke="#f59e0b" stroke-width="1" rx="5"/>
-                                        <text x="35" y="14" text-anchor="middle" fill="#fef3c7" font-size="9" font-weight="bold">Schema Enhanced</text>
-                                    </g>
-                                    
-                                    <text x="125" y="135" text-anchor="middle" fill="#92400e" font-size="11" font-weight="bold">Production Ready</text>
-                                    <text x="125" y="150" text-anchor="middle" fill="#a16207" font-size="10">Hybrid Search Index</text>
-                                </g>
-                                
-                                <!-- Data Flow Labels -->
-                                <text x="325" y="125" text-anchor="middle" fill="#60a5fa" font-size="12" font-weight="bold">Raw Data</text>
-                                <text x="645" y="125" text-anchor="middle" fill="#60a5fa" font-size="12" font-weight="bold">Processed</text>
-                            </svg>
+                <h2 class="section-title text-3xl font-bold mb-8 text-center w-full">Bronze Data Pipeline</h2>
+                <div class="bg-gradient-to-br from-orange-900/40 via-yellow-800/30 to-amber-700/40 border border-yellow-600/60 p-8 rounded-lg">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-yellow-500/20 rounded-full p-4 w-16 h-16 mr-6 flex items-center justify-center">
+                            <span class="text-2xl font-bold text-yellow-300">🥉</span>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-semibold text-yellow-400">Raw Data Ingestion</h3>
+                            <p class="text-yellow-200">Scheduled collection from multiple data sources</p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <h4 class="text-xl font-semibold text-yellow-300 mb-4">Data Sources & Scheduled Jobs</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                            <div class="bg-slate-700/50 p-4 rounded-lg border border-yellow-600/30">
+                                <h5 class="font-semibold text-white mb-2">GitLab</h5>
+                                <ul class="text-xs text-gray-400 space-y-1">
+                                    <li>• data-atlas-terraform repo</li>
+                                    <li>• Documentation</li>
+                                    <li>• MR summaries</li>
+                                </ul>
+                            </div>
+                            <div class="bg-slate-700/50 p-4 rounded-lg border border-yellow-600/30">
+                                <h5 class="font-semibold text-white mb-2">Databricks</h5>
+                                <ul class="text-xs text-gray-400 space-y-1">
+                                    <li>• Knowledge base articles</li>
+                                    <li>• Official documentation</li>
+                                </ul>
+                            </div>
+                            <div class="bg-slate-700/50 p-4 rounded-lg border border-yellow-600/30">
+                                <h5 class="font-semibold text-white mb-2">Confluence</h5>
+                                <ul class="text-xs text-gray-400 space-y-1">
+                                    <li>• Everything under<br>"Interested in Data? Start here!"</li>
+                                </ul>
+                            </div>
+                            <div class="bg-slate-700/50 p-4 rounded-lg border border-yellow-600/30">
+                                <h5 class="font-semibold text-white mb-2">Slack</h5>
+                                <ul class="text-xs text-gray-400 space-y-1">
+                                    <li>• 9 support channels</li>
+                                    <li>• Thread classification</li>
+                                    <li>• Validated solutions</li>
+                                </ul>
+                            </div>
                         </div>
                         
-                        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                            <!-- Bronze Pipeline -->
-                            <div class="bg-gradient-to-br from-yellow-900/50 to-yellow-800/50 border border-yellow-700/50 p-6 rounded-lg">
-                                <div class="text-center mb-4">
-                                    <div class="bg-yellow-500/20 rounded-full p-4 w-16 h-16 mx-auto mb-3 flex items-center justify-center">
-                                        <span class="text-2xl font-bold text-yellow-300">🥉</span>
-                                    </div>
-                                    <h4 class="text-xl font-semibold text-yellow-400">Bronze - Ingestion</h4>
-                                    <p class="text-yellow-200 text-sm">Raw Data Collection</p>
+                        <div class="mt-6 bg-yellow-900/20 p-4 rounded-lg border border-yellow-600/50">
+                            <h5 class="font-semibold text-yellow-300 mb-2">Pipeline Characteristics</h5>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                                <div class="text-center">
+                                    <p class="font-medium text-yellow-200">Frequency</p>
+                                    <p class="text-yellow-100">Customizable scheduled runs</p>
                                 </div>
-                                
-                                <div class="space-y-3">
-                                    <h5 class="font-semibold text-yellow-300">Scheduled Jobs:</h5>
-                                    <div class="space-y-2">
-                                        <div class="bg-slate-600 p-3 rounded">
-                                            <p class="font-medium text-white">GitLab</p>
-                                            <p class="text-xs text-gray-400">data-atlas-terraform docs & MRs</p>
-                                        </div>
-                                        <div class="bg-slate-600 p-3 rounded">
-                                            <p class="font-medium text-white">Databricks</p>
-                                            <p class="text-xs text-gray-400">KB articles & documentation</p>
-                                        </div>
-                                        <div class="bg-slate-600 p-3 rounded">
-                                            <p class="font-medium text-white">Confluence</p>
-                                            <p class="text-xs text-gray-400">Data team pages & docs</p>
-                                        </div>
-                                        <div class="bg-slate-600 p-3 rounded">
-                                            <p class="font-medium text-white">Slack</p>
-                                            <p class="text-xs text-gray-400">Support threads & conversations</p>
-                                        </div>
-                                    </div>
+                                <div class="text-center">
+                                    <p class="font-medium text-yellow-200">Format</p>
+                                    <p class="text-yellow-100">Raw, unprocessed data</p>
+                                </div>
+                                <div class="text-center">
+                                    <p class="font-medium text-yellow-200">Storage</p>
+                                    <p class="text-yellow-100">UC Volume</p>
                                 </div>
                             </div>
-                            
-                            <!-- Silver Pipeline -->
-                            <div class="bg-gradient-to-br from-gray-600/50 to-gray-700/50 border border-gray-500/50 p-6 rounded-lg">
-                                <div class="text-center mb-4">
-                                    <div class="bg-gray-400/20 rounded-full p-4 w-16 h-16 mx-auto mb-3 flex items-center justify-center">
-                                        <span class="text-2xl font-bold text-gray-300">🥈</span>
-                                    </div>
-                                    <h4 class="text-xl font-semibold text-gray-300">Silver - Processing</h4>
-                                    <p class="text-gray-400 text-sm">Cleaning & Chunking</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Arrow from Bronze to Silver -->
+            <div class="flex justify-center mb-8">
+                <div class="flex items-center">
+                    <div class="w-16 h-0.5 bg-gradient-to-r from-yellow-400 to-gray-400"></div>
+                    <svg class="w-8 h-8 text-gray-400 mx-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                    </svg>
+                    <div class="w-16 h-0.5 bg-gradient-to-r from-yellow-400 to-gray-400"></div>
+                </div>
+            </div>
+
+            <!-- Silver Data Pipeline -->
+            <section class="mb-16 card">
+                <h2 class="section-title text-3xl font-bold mb-8 text-center w-full">Silver Data Pipeline</h2>
+                <div class="bg-gradient-to-br from-slate-500/40 via-gray-300/30 to-slate-600/40 border border-slate-300/60 p-8 rounded-lg">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-gray-400/20 rounded-full p-4 w-16 h-16 mr-6 flex items-center justify-center">
+                            <span class="text-2xl font-bold text-gray-300">🥈</span>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-semibold text-gray-300">Data Processing & Cleaning</h3>
+                            <p class="text-gray-400">Transformation and semantic chunking</p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <h4 class="text-xl font-semibold text-gray-300 mb-4">Processing Steps</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                            <div class="bg-slate-700/50 p-4 rounded-lg border border-gray-500/30">
+                                <h5 class="font-semibold text-white mb-2">Semantic Chunking</h5>
+                                <ul class="text-xs text-gray-400 space-y-1">
+                                    <li>• Split by heading or chunk type</li>
+                                    <li>• Preserve document context</li>
+                                    <li>• Maintain semantic meaning</li>
+                                </ul>
+                            </div>
+                            <div class="bg-slate-700/50 p-4 rounded-lg border border-gray-500/30">
+                                <h5 class="font-semibold text-white mb-2">OCR Processing</h5>
+                                <ul class="text-xs text-gray-400 space-y-1">
+                                    <li>• Image to text extraction</li>
+                                    <li>• Confidence score stored</li>
+                                    <li>• Preserve image context</li>
+                                </ul>
+                            </div>
+                            <div class="bg-slate-700/50 p-4 rounded-lg border border-gray-500/30">
+                                <h5 class="font-semibold text-white mb-2">Code Block Detection</h5>
+                                <ul class="text-xs text-gray-400 space-y-1">
+                                    <li>• Syntax preservation</li>
+                                    <li>• Multi-language code support</li>
+                                </ul>
+                            </div>
+                            <div class="bg-slate-700/50 p-4 rounded-lg border border-gray-500/30">
+                                <h5 class="font-semibold text-white mb-2">File Hierarchy Analysis</h5>
+                                <ul class="text-xs text-gray-400 space-y-1">
+                                    <li>• Document relationships</li>
+                                    <li>• Chunk relationships</li>
+                                    <li>• Document mapping</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6 bg-gray-700/20 p-4 rounded-lg border border-gray-500/50">
+                            <h5 class="font-semibold text-gray-300 mb-2">Processing Output</h5>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                                <div class="text-center">
+                                    <p class="font-medium text-gray-200">Format</p>
+                                    <p class="text-gray-100">Structured chunks</p>
                                 </div>
-                                
-                                <div class="space-y-3">
-                                    <h5 class="font-semibold text-gray-300">Processing Steps:</h5>
-                                    <div class="space-y-2">
-                                        <div class="bg-slate-600 p-3 rounded">
-                                            <p class="font-medium text-white">Semantic Chunking</p>
-                                            <p class="text-xs text-gray-400">Context-aware splitting</p>
-                                        </div>
-                                        <div class="bg-slate-600 p-3 rounded">
-                                            <p class="font-medium text-white">OCR Processing</p>
-                                            <p class="text-xs text-gray-400">Extract text from images</p>
-                                        </div>
-                                        <div class="bg-slate-600 p-3 rounded">
-                                            <p class="font-medium text-white">Code Block Detection</p>
-                                            <p class="text-xs text-gray-400">Preserve syntax highlighting</p>
-                                        </div>
-                                        <div class="bg-slate-600 p-3 rounded">
-                                            <p class="font-medium text-white">File Hierarchy Analysis</p>
-                                            <p class="text-xs text-gray-400">Maintain doc relationships</p>
-                                        </div>
-                                    </div>
-                                    <div class="mt-4 bg-slate-600 p-2 rounded text-center">
-                                        <p class="text-xs text-gray-300">Output: Structured chunks in Delta table</p>
-                                    </div>
+                                <div class="text-center">
+                                    <p class="font-medium text-gray-200">Storage</p>
+                                    <p class="text-gray-100">Delta Lake Silver tables</p>
+                                </div>
+                                <div class="text-center">
+                                    <p class="font-medium text-gray-200">Quality</p>
+                                    <p class="text-gray-100">Cleaned & validated</p>
                                 </div>
                             </div>
-                            
-                            <!-- Gold Pipeline -->
-                            <div class="bg-gradient-to-br from-amber-600/50 to-amber-700/50 border border-amber-500/50 p-6 rounded-lg">
-                                <div class="text-center mb-4">
-                                    <div class="bg-amber-400/20 rounded-full p-4 w-16 h-16 mx-auto mb-3 flex items-center justify-center">
-                                        <span class="text-2xl font-bold text-amber-300">🥇</span>
-                                    </div>
-                                    <h4 class="text-xl font-semibold text-amber-400">Gold - Embeddings</h4>
-                                    <p class="text-amber-200 text-sm">Vector Search Ready</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Arrow from Silver to Gold -->
+            <div class="flex justify-center mb-8">
+                <div class="flex items-center">
+                    <div class="w-16 h-0.5 bg-gradient-to-r from-gray-400 to-amber-400"></div>
+                    <svg class="w-8 h-8 text-amber-400 mx-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                    </svg>
+                    <div class="w-16 h-0.5 bg-gradient-to-r from-gray-400 to-amber-400"></div>
+                </div>
+            </div>
+
+            <!-- Gold Data Pipeline -->
+            <section class="mb-16 card">
+                <h2 class="section-title text-3xl font-bold mb-8 text-center w-full">Gold Data Pipeline</h2>
+                <div class="bg-gradient-to-br from-yellow-500/40 via-amber-400/30 to-yellow-600/40 border border-yellow-400/60 p-8 rounded-lg">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-amber-400/20 rounded-full p-4 w-16 h-16 mr-6 flex items-center justify-center">
+                            <span class="text-2xl font-bold text-amber-300">🥇</span>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-semibold text-amber-400">Vector Embeddings & Search</h3>
+                            <p class="text-amber-200">Production-ready vector search index</p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <h4 class="text-xl font-semibold text-amber-300 mb-4">Embedding Process</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                            <div class="bg-slate-700/50 p-4 rounded-lg border border-amber-500/30">
+                                <h5 class="font-semibold text-white mb-2">Late Chunking</h5>
+                                <ul class="text-xs text-gray-400 space-y-1">
+                                    <li>• Complete document context</li>
+                                    <li>• Chunk-level precision</li>
+                                    <li>• Enhanced retrieval quality</li>
+                                </ul>
+                            </div>
+                            <div class="bg-slate-700/50 p-4 rounded-lg border border-amber-500/30">
+                                <h5 class="font-semibold text-white mb-2">gte-large-en-v1_5</h5>
+                                <ul class="text-xs text-gray-400 space-y-1">
+                                    <li>• High-quality embeddings</li>
+                                    <li>• Optimized for English</li>
+                                    <li>• Large context window (8192 tokens)</li>
+                                </ul>
+                            </div>
+                            <div class="bg-slate-700/50 p-4 rounded-lg border border-amber-500/30">
+                                <h5 class="font-semibold text-white mb-2">Vector Search Index</h5>
+                                <ul class="text-xs text-gray-400 space-y-1">
+                                    <li>• Semantic similarity</li>
+                                    <li>• Keyword matching</li>
+                                    <li>• Relevance ranking</li>
+                                </ul>
+                            </div>
+                            <div class="bg-slate-700/50 p-4 rounded-lg border border-amber-500/30">
+                                <h5 class="font-semibold text-white mb-2">Source Preservation</h5>
+                                <ul class="text-xs text-gray-400 space-y-1">
+                                    <li>• Source file traceability</li>
+                                    <li>• Source URL traceability</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6 bg-amber-700/20 p-4 rounded-lg border border-amber-500/50">
+                            <h5 class="font-semibold text-amber-300 mb-2">Production Capabilities</h5>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                                <div class="text-center">
+                                    <p class="font-medium text-amber-200">Search Type</p>
+                                    <p class="text-amber-100">Hybrid semantic + keyword</p>
                                 </div>
-                                
-                                <div class="space-y-3">
-                                    <h5 class="font-semibold text-amber-300">Embedding Process:</h5>
-                                    <div class="space-y-2">
-                                        <div class="bg-slate-600 p-3 rounded">
-                                            <p class="font-medium text-white">Late Chunking</p>
-                                            <p class="text-xs text-gray-400">Full doc embeddings first</p>
-                                        </div>
-                                        <div class="bg-slate-600 p-3 rounded">
-                                            <p class="font-medium text-white">gte-large-en-v1_5</p>
-                                            <p class="text-xs text-gray-400">Via Databricks endpoint</p>
-                                        </div>
-                                        <div class="bg-slate-600 p-3 rounded">
-                                            <p class="font-medium text-white">Vector Search Index</p>
-                                            <p class="text-xs text-gray-400">Hybrid search capabilities</p>
-                                        </div>
-                                        <div class="bg-slate-600 p-3 rounded">
-                                            <p class="font-medium text-white">Schema Enhancement</p>
-                                            <p class="text-xs text-gray-400">Added source_url column</p>
-                                        </div>
-                                    </div>
+                                <div class="text-center">
+                                    <p class="font-medium text-amber-200">Performance</p>
+                                    <p class="text-amber-100">Sub-second query response</p>
+                                </div>
+                                <div class="text-center">
+                                    <p class="font-medium text-amber-200">Scale</p>
+                                    <p class="text-amber-100">Enterprise-ready index</p>
                                 </div>
                             </div>
                         </div>
@@ -356,8 +374,6 @@
     
         </div>
     </main>
-
-    <script src="../styles/shared-navigation.js"></script>
 
 </body>
 </html>

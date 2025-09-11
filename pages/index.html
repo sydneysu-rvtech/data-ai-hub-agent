@@ -12,12 +12,15 @@
 </head>
 <body class="text-gray-200">
 
+<script src="../styles/shared-navigation.js"></script>
+
 <!-- Sidebar Toggle Button -->
 <button class="sidebar-toggle" onclick="toggleSidebar()">
     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
     </svg>
 </button>
+
 
 <!-- Sidebar Navigation -->
 <nav class="sidebar" id="sidebar">
@@ -33,6 +36,15 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
                 </svg>
                 Home
+            </div>
+        </a>
+        
+        <a href="rationale.html" class="nav-item">
+            <div class="flex items-center">
+                <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                </svg>
+                Rationale
             </div>
         </a>
         
@@ -90,11 +102,11 @@
             Dev Workflow
             </div>
         </a>
-        
-        <a href="demo.html" class="nav-item">
-            <div class="flex items-center">
-                <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h8m-5-10V3a1 1 0 011-1h4a1 1 0 011 1v1M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+    
+    <a href="demo.html" class="nav-item">
+        <div class="flex items-center">
+            <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h8m-5-10V3a1 1 0 011-1h4a1 1 0 011 1v1M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
             </svg>
             Demo
         </div>
@@ -131,7 +143,7 @@
                 </div>
                 
                 <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white whitespace-nowrap">Data-AI-Hub Agent: Intelligent Developer Support</h1>
-                <p class="mt-4 text-lg md:text-xl text-blue-300 max-w-3xl mx-auto whitespace-nowrap">Automating developer support to save $78k annually and free up senior engineers for innovation.</p>
+                <p class="mt-4 text-lg md:text-xl text-blue-300 max-w-3xl mx-auto whitespace-nowrap">Automating developer support to free up senior engineers for innovation.</p>
                 
                 <!-- Team Information -->
                 <div class="mt-8 text-center">
@@ -143,157 +155,83 @@
                 </div>
             </header>
 
-            <!-- Problem & Solution -->
-            <section class="mb-16 grid md:grid-cols-2 gap-8">
-                <div class="card">
-                    <h2 class="text-2xl font-bold text-red-400 mb-4">The Problem: High Cost of Manual Support</h2>
-                    <p class="text-gray-400 mb-6">Senior engineers spend too much time manually answering repetitive technical questions, costing the company significant productivity loss.</p>
-                    <div class="flip-card">
-                        <div class="flip-hint">Hover to see details</div>
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front bg-red-900/50">
-                                <p class="text-5xl font-extrabold text-white">$130,000</p>
-                                <p class="text-lg text-red-300 mt-1">Projected annual cost in senior engineer time</p>
-                            </div>
-                            <div class="flip-card-back bg-red-800/70">
-                                <div class="text-center text-white">
-                                    <p class="text-lg font-semibold mb-3">Calculation:</p>
-                                    <p class="text-sm mb-2">• Slack Support: 4 senior engineers × 15% time = 0.6 FTE</p>
-                                    <p class="text-sm mb-2">• Office Hours: 4 × 30min/week = 0.05 FTE</p>
-                                    <p class="text-sm mb-2">• Total: 0.65 FTE</p>
-                                    <p class="text-sm font-bold">0.65 × avg $200k salary = $130k</p>
-                                </div>
-                            </div>
+            <!-- Navigation Cards -->
+            <section class="mb-16">
+                <!-- First Row -->
+                <div class="grid md:grid-cols-3 gap-8 mb-8">
+                    <!-- Rationale Card -->
+                    <a href="rationale.html" class="card hover:bg-slate-700/70 transition-colors duration-300 group">
+                        <div class="flex items-center mb-4">
+                            <svg class="w-8 h-8 mr-4 text-blue-400 group-hover:text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                            </svg>
+                            <h3 class="text-2xl font-bold text-white group-hover:text-blue-100">Project Rationale</h3>
                         </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <h2 class="text-2xl font-bold text-green-400 mb-4">The Solution: An AI-Powered Slack Bot</h2>
-                    <p class="text-gray-400 mb-6">A Slack bot provides instant, intelligent answers to developer questions, directly in their workflow. Using RAG technology, it retrieves relevant knowledge and generates accurate responses.</p>
-                    <div class="bg-green-900/50 p-6 rounded-lg text-center" style="height: 200px; display: flex; flex-direction: column; justify-content: center;">
-                         <div class="flex justify-center items-center gap-6 mb-4">
-                            <div class="bg-white rounded-full p-3 shadow-lg">
-                                <img src="../media/slack-logo.png" alt="Slack Logo" class="h-10 w-10 object-contain">
-                            </div>
-                            <div class="bg-white rounded-full p-3 shadow-lg">
-                                <img src="../media/intelligence-clipart.png" alt="AI Intelligence" class="h-10 w-10 object-contain">
-                            </div>
-                            <div class="bg-white rounded-full p-3 shadow-lg">
-                                <img src="../media/chat-thread-icon.png" alt="Chat Thread" class="h-10 w-10 object-contain">
-                            </div>
-                         </div>
-                        <p class="text-lg font-semibold text-white">Support given 24/7 in dedicated channels & DMs</p>
-                    </div>
-                </div>
-            </section>
+                        <p class="text-gray-400 group-hover:text-gray-300">Explore the business case, support metrics, and financial impact of the Data-AI-Hub Agent project.</p>
+                    </a>
 
-            <!-- Supported Channels & Slack Metrics -->
-            <section class="mb-16 card">
-                <h2 class="section-title text-3xl font-bold mb-8 text-center w-full">Platform Coverage & Engagement</h2>
-                <div class="grid md:grid-cols-2 gap-8">
-                    <!-- Left side: Supported Channels -->
-                    <div class="bg-slate-700 p-6 rounded-lg">
-                        <h3 class="text-xl font-semibold text-blue-400 mb-6 text-center">9 Dedicated Support Channels</h3>
-                        <div class="space-y-3">
-                            <div class="bg-slate-600 px-4 py-2 rounded-lg">
-                                <p class="font-medium text-gray-200">#databricks-support</p>
-                            </div>
-                            <div class="bg-slate-600 px-4 py-2 rounded-lg">
-                                <p class="font-medium text-gray-200">#ask-ota-data</p>
-                            </div>
-                            <div class="bg-slate-600 px-4 py-2 rounded-lg">
-                                <p class="font-medium text-gray-200">#ask-manufacturing-data</p>
-                            </div>
-                            <div class="bg-slate-600 px-4 py-2 rounded-lg">
-                                <p class="font-medium text-gray-200">#ask-product-data</p>
-                            </div>
-                            <div class="bg-slate-600 px-4 py-2 rounded-lg">
-                                <p class="font-medium text-gray-200">#ask-supplychain-data</p>
-                            </div>
-                            <div class="bg-slate-600 px-4 py-2 rounded-lg">
-                                <p class="font-medium text-gray-200">#ask-enterprise-data</p>
-                            </div>
-                            <div class="bg-slate-600 px-4 py-2 rounded-lg">
-                                <p class="font-medium text-gray-200">#ask-fleet-data</p>
-                            </div>
-                            <div class="bg-slate-600 px-4 py-2 rounded-lg">
-                                <p class="font-medium text-gray-200">#ask-commercial-data</p>
-                            </div>
-                            <div class="bg-slate-600 px-4 py-2 rounded-lg">
-                                <p class="font-medium text-gray-200">#ask-shared-services-data</p>
-                            </div>
+                    <!-- Architecture Card -->
+                    <a href="architecture.html" class="card hover:bg-slate-700/70 transition-colors duration-300 group">
+                        <div class="flex items-center mb-4">
+                            <svg class="w-8 h-8 mr-4 text-green-400 group-hover:text-green-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                            </svg>
+                            <h3 class="text-2xl font-bold text-white group-hover:text-blue-100">System Architecture</h3>
                         </div>
-                    </div>
+                        <p class="text-gray-400 group-hover:text-gray-300">Discover the technical architecture, data pipeline, and AI workflows powering the intelligent agent.</p>
+                    </a>
 
-                    <!-- Right side: Slack Metrics -->
-                    <div class="bg-slate-700 p-6 rounded-lg">
-                        <h3 class="text-xl font-semibold text-blue-400 mb-6 text-center">Slack Engagement Metrics</h3>
-                        <div class="space-y-4">
-                            <div class="text-center bg-slate-600 p-4 rounded-lg">
-                                <p class="text-3xl font-bold text-white">18,413</p>
-                                <p class="text-sm text-gray-400 mt-1">Messages Analyzed (6 months)</p>
-                            </div>
-                            <div class="text-center bg-slate-600 p-4 rounded-lg">
-                                <p class="text-3xl font-bold text-white">2,572</p>
-                                <p class="text-sm text-gray-400 mt-1">Threads Engaged (6 months)</p>
-                            </div>
-                            <div class="text-center bg-slate-600 p-4 rounded-lg">
-                                <p class="text-3xl font-bold text-white">113</p>
-                                <p class="text-sm text-gray-400 mt-1">Average Messages Per Day</p>
-                            </div>
-                            <div class="text-center bg-slate-600 p-4 rounded-lg">
-                                <p class="text-3xl font-bold text-white">17.1</p>
-                                <p class="text-sm text-gray-400 mt-1">Average Threads per Day</p>
-                            </div>
+                    <!-- Dev Workflow Card -->
+                    <a href="dev-workflow.html" class="card hover:bg-slate-700/70 transition-colors duration-300 group">
+                        <div class="flex items-center mb-4">
+                            <svg class="w-8 h-8 mr-4 text-orange-400 group-hover:text-orange-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            <h3 class="text-2xl font-bold text-white group-hover:text-blue-100">Dev Workflow</h3>
                         </div>
-                    </div>
+                        <p class="text-gray-400 group-hover:text-gray-300">Learn about the development process, deployment pipeline, and testing strategies used in building the agent.</p>
+                    </a>
                 </div>
-            </section>
 
-            <!-- Business Impact -->
-            <section class="card">
-                <h2 class="section-title text-3xl font-bold mb-8 text-center w-full">Financial Metrics</h2>
-                <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                    <div class="flip-card">
-                        <div class="flip-hint">Hover to see details</div>
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front highlight-card">
-                                <p class="text-6xl font-extrabold text-white">$78,000</p>
-                                <p class="text-xl font-semibold text-blue-100 mt-2">Projected Annual Savings</p>
-                            </div>
-                            <div class="flip-card-back" style="background: linear-gradient(145deg, #1e40af, #3730a3);">
-                                <div class="text-center text-white">
-                                    <p class="text-lg font-semibold mb-3">Calculation:</p>
-                                    <p class="text-sm mb-2">• Annual cost: $130,000</p>
-                                    <p class="text-sm mb-2">• Target Automation rate: 60%</p>
-                                    <p class="text-sm font-bold">$130k × 60% = $78k saved</p>
-                                </div>
-                            </div>
+                <!-- Second Row -->
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Demo Card -->
+                    <a href="demo.html" class="card hover:bg-slate-700/70 transition-colors duration-300 group">
+                        <div class="flex items-center mb-4">
+                            <svg class="w-8 h-8 mr-4 text-purple-400 group-hover:text-purple-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h8m-5-10V3a1 1 0 011-1h4a1 1 0 011 1v1M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                            </svg>
+                            <h3 class="text-2xl font-bold text-white group-hover:text-blue-100">Live Demo</h3>
                         </div>
-                    </div>
-                    <div class="flip-card">
-                        <div class="flip-hint">Hover to see details</div>
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front bg-slate-700">
-                                <p class="text-6xl font-bold text-white">60%</p>
-                                <p class="text-xl text-gray-400 mt-2">Target Automation Rate</p>
-                            </div>
-                            <div class="flip-card-back bg-slate-600">
-                                <div class="text-center text-white">
-                                    <p class="text-lg font-semibold mb-3">Why 60%?</p>
-                                    <p class="text-sm mb-2">• Complex questions need humans</p>
-                                    <p class="text-sm mb-2">• Repetitive/Trivial Q&A = automatable</p>
-                                    <p class="text-sm font-bold">Conservative estimate based on thread analysis</p>
-                                </div>
-                            </div>
+                        <p class="text-gray-400 group-hover:text-gray-300">See the Data-AI-Hub Agent in action with real examples and interactive demonstrations.</p>
+                    </a>
+
+                    <!-- Challenges Card -->
+                    <a href="challenges.html" class="card hover:bg-slate-700/70 transition-colors duration-300 group">
+                        <div class="flex items-center mb-4">
+                            <svg class="w-8 h-8 mr-4 text-red-400 group-hover:text-red-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+                            </svg>
+                            <h3 class="text-2xl font-bold text-white group-hover:text-blue-100">Challenges</h3>
                         </div>
-                    </div>
+                        <p class="text-gray-400 group-hover:text-gray-300">Understand the technical challenges faced and solutions implemented during development.</p>
+                    </a>
+
+                    <!-- Future Work Card -->
+                    <a href="future-work.html" class="card hover:bg-slate-700/70 transition-colors duration-300 group">
+                        <div class="flex items-center mb-4">
+                            <svg class="w-8 h-8 mr-4 text-cyan-400 group-hover:text-cyan-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                            </svg>
+                            <h3 class="text-2xl font-bold text-white group-hover:text-blue-100">Future Work</h3>
+                        </div>
+                        <p class="text-gray-400 group-hover:text-gray-300">Explore planned enhancements, roadmap items, and potential improvements for the agent system.</p>
+                    </a>
                 </div>
             </section>
         </div>
     </main>
-
-    <script src="../styles/shared-navigation.js"></script>
 
 </body>
 </html> 
